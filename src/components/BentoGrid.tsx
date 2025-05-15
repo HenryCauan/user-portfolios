@@ -2,13 +2,13 @@
 import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { MapPin, Linkedin, Instagram, Github, Mail, FileText } from 'lucide-react';
+import { MapPin, Linkedin, Instagram, Github, Mail, FileText, Figma, Layers, PenTool, Code, GitBranch } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
-const SkillsCard = () => (
+const DevSkillsCard = () => (
   <Card className="overflow-hidden h-full">
     <CardContent className="p-6">
-      <h3 className="text-xl font-oswald font-medium mb-4">SKILLS</h3>
+      <h3 className="text-xl font-oswald font-medium mb-4">DEV SKILLS</h3>
       <div className="flex flex-wrap gap-2">
         <Badge className="bg-black text-white">React</Badge>
         <Badge className="bg-black text-white">Next.js</Badge>
@@ -18,6 +18,54 @@ const SkillsCard = () => (
         <Badge className="bg-black text-white">Tailwind CSS</Badge>
         <Badge className="bg-black text-white">GSAP</Badge>
         <Badge className="bg-black text-white">Vite</Badge>
+      </div>
+    </CardContent>
+  </Card>
+);
+
+const UiUxSkillsCard = () => (
+  <Card className="overflow-hidden h-full">
+    <CardContent className="p-6">
+      <h3 className="text-xl font-oswald font-medium mb-4">UI/UX SKILLS</h3>
+      <div className="flex flex-wrap gap-2">
+        <Badge className="bg-black text-white flex items-center gap-1">
+          <Figma className="h-3 w-3" />
+          Figma
+        </Badge>
+        <Badge className="bg-black text-white">Adobe Illustrator</Badge>
+        <Badge className="bg-black text-white">Photoshop</Badge>
+        <Badge className="bg-black text-white flex items-center gap-1">
+          <Layers className="h-3 w-3" />
+          Design Responsivo
+        </Badge>
+        <Badge className="bg-black text-white flex items-center gap-1">
+          <PenTool className="h-3 w-3" />
+          Animações Web
+        </Badge>
+      </div>
+    </CardContent>
+  </Card>
+);
+
+const ToolsCard = () => (
+  <Card className="overflow-hidden h-full">
+    <CardContent className="p-6">
+      <h3 className="text-xl font-oswald font-medium mb-4">TOOLS</h3>
+      <div className="flex flex-wrap gap-2">
+        <Badge className="bg-black text-white flex items-center gap-1">
+          <GitBranch className="h-3 w-3" />
+          Git
+        </Badge>
+        <Badge className="bg-black text-white flex items-center gap-1">
+          <Github className="h-3 w-3" />
+          GitHub
+        </Badge>
+        <Badge className="bg-black text-white flex items-center gap-1">
+          <Code className="h-3 w-3" />
+          REST APIs
+        </Badge>
+        <Badge className="bg-black text-white">Kanban</Badge>
+        <Badge className="bg-black text-white">API Integration</Badge>
       </div>
     </CardContent>
   </Card>
@@ -59,11 +107,18 @@ const SocialsCard = () => (
 
 const ContactCard = () => (
   <Card className="overflow-hidden h-full">
-    <CardContent className="p-6 flex items-center justify-center">
+    <CardContent className="p-6 flex flex-col gap-4">
       <Button className="w-full bg-black text-white hover:bg-gray-800 gap-2">
         <Mail className="h-4 w-4" />
         Contact Me
       </Button>
+      <div className="text-sm">
+        <p className="flex items-center gap-2 mb-2">
+          <Mail className="h-4 w-4" /> 
+          henrcau@gmail.com
+        </p>
+        <p>+55 87 98859-1862</p>
+      </div>
     </CardContent>
   </Card>
 );
@@ -87,13 +142,17 @@ const BentoGrid: React.FC = () => {
     <section className="w-full py-20 px-6 md:px-12">
       <h2 className="text-3xl md:text-4xl font-playfair font-bold mb-12">About Me</h2>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div className="col-span-1 md:col-span-2">
-          <SkillsCard />
-        </div>
+        <DevSkillsCard />
+        <UiUxSkillsCard />
+        <ToolsCard />
         <LocationCard />
         <SocialsCard />
-        <ContactCard />
-        <CvCard />
+        <div className="md:col-span-1">
+          <ContactCard />
+        </div>
+        <div className="md:col-span-1">
+          <CvCard />
+        </div>
       </div>
     </section>
   );
