@@ -70,11 +70,14 @@ const ContactCard = () => (
 
 const CvCard = () => (
   <Card className="overflow-hidden h-full">
-    <CardContent className="p-6 flex items-center justify-center">
-      <Button variant="outline" className="w-full border-black gap-2">
+    <CardContent className="p-6 flex flex-col items-center justify-center">
+      <Button variant="outline" className="w-full border-black gap-2 mb-3">
         <FileText className="h-4 w-4" />
         View CV
       </Button>
+      <p className="text-sm text-gray-600 text-center">
+        Aqui você encontrará minha jornada profissional, habilidades e experiências detalhadas.
+      </p>
     </CardContent>
   </Card>
 );
