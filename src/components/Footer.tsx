@@ -7,8 +7,8 @@ const Footer: React.FC = () => {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         <div>
           <h3 className="text-lg font-medium mb-4">Contact</h3>
-          <p className="text-gray-600 mb-2">hello@hcauan.com</p>
-          <p className="text-gray-600">+1 (234) 567-8900</p>
+          <p className="text-gray-600 mb-2">henrcau@gmail.com</p>
+          <p className="text-gray-600">+55 87 98859-1862</p>
         </div>
         <div>
           <h3 className="text-lg font-medium mb-4">Social</h3>
