@@ -3,6 +3,7 @@ import React from 'react';
 import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
 import Portfolio from '../components/Portfolio';
+import BentoGrid from '../components/BentoGrid';
 import Footer from '../components/Footer';
 
 const Index: React.FC = () => {
@@ -12,6 +13,7 @@ const Index: React.FC = () => {
       <main className="flex-grow">
         <Hero />
         <Portfolio />
+        <BentoGrid />
       </main>
       <Footer />
     </div>
