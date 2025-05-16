@@ -1,8 +1,9 @@
 import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { MapPin, Linkedin, Instagram, Github, Mail, FileText, Figma, Layers, PenTool, Code, GitBranch, GraduationCap, Award } from 'lucide-react';
+import { MapPin, Linkedin, Instagram, Github, Mail, FileText, Figma, Layers, PenTool, Code, GitBranch, GraduationCap, Award, Link, Briefcase, Star, Globe } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 
 const DevSkillsCard = () => (
   <Card className="overflow-hidden h-full">
@@ -213,18 +214,171 @@ const AboutMeCard = () => (
   </Card>
 );
 
+const FeaturedProjectCard = () => (
+  <Card className="overflow-hidden h-full md:col-span-2">
+    <CardContent className="p-6">
+      <h3 className="text-xl font-oswald font-medium mb-4 flex items-center gap-2">
+        <Star className="h-5 w-5" />
+        FEATURED PROJECT
+      </h3>
+      <div className="mb-4">
+        <Carousel className="w-full">
+          <CarouselContent>
+            <CarouselItem>
+              <div className="bg-gray-100 h-48 flex items-center justify-center rounded">
+                <p className="text-gray-500">Project Screenshot 1</p>
+              </div>
+            </CarouselItem>
+            <CarouselItem>
+              <div className="bg-gray-100 h-48 flex items-center justify-center rounded">
+                <p className="text-gray-500">Project Screenshot 2</p>
+              </div>
+            </CarouselItem>
+            <CarouselItem>
+              <div className="bg-gray-100 h-48 flex items-center justify-center rounded">
+                <p className="text-gray-500">Project Screenshot 3</p>
+              </div>
+            </CarouselItem>
+          </CarouselContent>
+          <CarouselPrevious className="-left-4" />
+          <CarouselNext className="-right-4" />
+        </Carousel>
+      </div>
+      <h4 className="font-medium mb-2">Portfolio Website Redesign</h4>
+      <p className="text-sm text-gray-700 mb-3">
+        Complete redesign of a personal portfolio website using React, Tailwind CSS, and modern design principles. 
+        Focused on performance optimization and responsive design.
+      </p>
+      <div className="flex flex-wrap gap-2 mb-3">
+        <Badge className="bg-black text-white">React</Badge>
+        <Badge className="bg-black text-white">Tailwind CSS</Badge>
+        <Badge className="bg-black text-white">GSAP</Badge>
+      </div>
+      <div className="flex gap-2">
+        <Button variant="outline" size="sm" className="text-xs border-black">
+          <Link className="h-3.5 w-3.5 mr-1" />
+          Live Demo
+        </Button>
+        <Button variant="outline" size="sm" className="text-xs border-black">
+          <Github className="h-3.5 w-3.5 mr-1" />
+          View Code
+        </Button>
+      </div>
+    </CardContent>
+  </Card>
+);
+
+const ExperienceCard = () => (
+  <Card className="overflow-hidden h-full md:col-span-2">
+    <CardContent className="p-6">
+      <h3 className="text-xl font-oswald font-medium mb-4 flex items-center gap-2">
+        <Briefcase className="h-5 w-5" />
+        PROFESSIONAL EXPERIENCE
+      </h3>
+      <div className="space-y-4">
+        <div>
+          <div className="flex justify-between mb-1">
+            <h4 className="font-medium">Frontend Developer</h4>
+            <span className="text-sm text-gray-500">2023 - Present</span>
+          </div>
+          <p className="text-sm font-medium text-gray-700 mb-1">TechCorp Inc.</p>
+          <p className="text-sm text-gray-600">
+            Developed and maintained responsive web applications using React and Tailwind CSS.
+            Implemented UI/UX improvements that increased user engagement by 25%.
+          </p>
+        </div>
+        <div>
+          <div className="flex justify-between mb-1">
+            <h4 className="font-medium">UI/UX Design Intern</h4>
+            <span className="text-sm text-gray-500">2022 - 2023</span>
+          </div>
+          <p className="text-sm font-medium text-gray-700 mb-1">DesignHub Studio</p>
+          <p className="text-sm text-gray-600">
+            Created wireframes and prototypes for mobile and web applications.
+            Collaborated with development teams to implement design systems.
+          </p>
+        </div>
+      </div>
+    </CardContent>
+  </Card>
+);
+
+const TestimonialsCard = () => (
+  <Card className="overflow-hidden h-full">
+    <CardContent className="p-6">
+      <h3 className="text-xl font-oswald font-medium mb-4">TESTIMONIALS</h3>
+      <div className="space-y-4">
+        <div className="p-3 bg-gray-50 rounded-lg">
+          <p className="text-sm italic mb-2">
+            "Exceptional problem-solver with strong attention to detail. Created beautiful, functional interfaces that our users love."
+          </p>
+          <p className="text-xs font-medium">— Maria Silva, Product Manager at TechCorp</p>
+        </div>
+        <div className="p-3 bg-gray-50 rounded-lg">
+          <p className="text-sm italic mb-2">
+            "Talented developer who delivers clean, well-documented code. Always meets deadlines and exceeds expectations."
+          </p>
+          <p className="text-xs font-medium">— João Mendes, Tech Lead at DesignHub</p>
+        </div>
+      </div>
+    </CardContent>
+  </Card>
+);
+
+const AchievementsCard = () => (
+  <Card className="overflow-hidden h-full">
+    <CardContent className="p-6">
+      <h3 className="text-xl font-oswald font-medium mb-4 flex items-center gap-2">
+        <Award className="h-5 w-5" />
+        ACHIEVEMENTS
+      </h3>
+      <div className="space-y-3">
+        <div className="flex gap-2 items-start">
+          <Star className="h-4 w-4 mt-1 flex-shrink-0 text-amber-500" />
+          <p className="text-sm">Front-End Developer of the Month (TechCorp, Jul 2023)</p>
+        </div>
+        <div className="flex gap-2 items-start">
+          <Star className="h-4 w-4 mt-1 flex-shrink-0 text-amber-500" />
+          <p className="text-sm">Best UI/UX Design - Internal Hackathon (2022)</p>
+        </div>
+        <div className="flex gap-2 items-start">
+          <Star className="h-4 w-4 mt-1 flex-shrink-0 text-amber-500" />
+          <p className="text-sm">1st Place - Web Development Competition</p>
+        </div>
+      </div>
+    </CardContent>
+  </Card>
+);
+
+const AvailabilityStatusCard = () => (
+  <Card className="overflow-hidden h-full">
+    <CardContent className="p-6 flex flex-col justify-between h-full">
+      <h3 className="text-xl font-oswald font-medium mb-2">AVAILABILITY STATUS</h3>
+      <div className="flex flex-col items-center text-center gap-2">
+        <Badge className="bg-green-500 text-white px-3 py-1">Available for Work</Badge>
+        <p className="text-sm text-gray-700">Open to freelance projects and full-time positions</p>
+      </div>
+    </CardContent>
+  </Card>
+);
+
 const BentoGrid: React.FC = () => {
   return (
     <section className="w-full py-20 px-6 md:px-12">
       <h2 className="text-3xl md:text-4xl font-playfair font-bold mb-12">About Me</h2>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         <AboutMeCard />
+        <FeaturedProjectCard />
+        <ExperienceCard />
         <DevSkillsCard />
         <UiUxSkillsCard />
         <SkillLevelCard />
         <ToolsCard />
+        <TestimonialsCard />
         <EducationCard />
+        <AchievementsCard />
         <LocationCard />
+        <AvailabilityStatusCard />
         <SocialsCard />
         <div className="md:col-span-1">
           <ContactCard />
