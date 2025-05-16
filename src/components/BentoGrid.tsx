@@ -165,13 +165,63 @@ const CvCard = () => (
   </Card>
 );
 
+const SkillLevelCard = () => {
+  const skills = [
+    { name: 'React', level: 90 },
+    { name: 'JavaScript', level: 85 },
+    { name: 'HTML & CSS', level: 95 },
+    { name: 'UI/UX Design', level: 80 },
+    { name: 'Responsive Design', level: 90 },
+  ];
+
+  return (
+    <Card className="overflow-hidden h-full">
+      <CardContent className="p-6">
+        <h3 className="text-xl font-oswald font-medium mb-6">SKILL PROFICIENCY</h3>
+        <div className="space-y-4">
+          {skills.map((skill, index) => (
+            <div key={index} className="space-y-2">
+              <div className="flex justify-between">
+                <span className="text-sm font-medium">{skill.name}</span>
+                <span className="text-sm text-gray-500">{skill.level}%</span>
+              </div>
+              <div className="h-2 bg-gray-200 rounded-full overflow-hidden">
+                <div 
+                  className="h-full bg-black rounded-full" 
+                  style={{ width: `${skill.level}%` }}
+                />
+              </div>
+            </div>
+          ))}
+        </div>
+      </CardContent>
+    </Card>
+  );
+};
+
+const AboutMeCard = () => (
+  <Card className="overflow-hidden h-full md:col-span-2">
+    <CardContent className="p-6">
+      <h3 className="text-xl font-oswald font-medium mb-4">ABOUT ME</h3>
+      <p className="text-gray-700">
+        Front-end developer and UI/UX designer passionate about creating beautiful, 
+        functional interfaces with clean code. Experienced in building responsive 
+        websites and web applications that provide seamless user experiences.
+        I enjoy solving complex problems and learning new technologies.
+      </p>
+    </CardContent>
+  </Card>
+);
+
 const BentoGrid: React.FC = () => {
   return (
     <section className="w-full py-20 px-6 md:px-12">
       <h2 className="text-3xl md:text-4xl font-playfair font-bold mb-12">About Me</h2>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <AboutMeCard />
         <DevSkillsCard />
         <UiUxSkillsCard />
+        <SkillLevelCard />
         <ToolsCard />
         <EducationCard />
         <LocationCard />
