@@ -1,8 +1,7 @@
-
 import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { MapPin, Linkedin, Instagram, Github, Mail, FileText, Figma, Layers, PenTool, Code, GitBranch } from 'lucide-react';
+import { MapPin, Linkedin, Instagram, Github, Mail, FileText, Figma, Layers, PenTool, Code, GitBranch, GraduationCap, Award } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const DevSkillsCard = () => (
@@ -66,6 +65,35 @@ const ToolsCard = () => (
         </Badge>
         <Badge className="bg-black text-white">Kanban</Badge>
         <Badge className="bg-black text-white">API Integration</Badge>
+      </div>
+    </CardContent>
+  </Card>
+);
+
+const EducationCard = () => (
+  <Card className="overflow-hidden h-full">
+    <CardContent className="p-6">
+      <h3 className="text-xl font-oswald font-medium mb-4 flex items-center gap-2">
+        <GraduationCap className="h-5 w-5" />
+        FORMAÇÃO & CERTIFICAÇÕES
+      </h3>
+      <div className="space-y-3">
+        <div className="flex gap-2 items-start">
+          <Award className="h-4 w-4 mt-1 flex-shrink-0" />
+          <p className="text-sm">Bacharelado em Ciência da Computação - Estácio | 2022 - Atual</p>
+        </div>
+        <div className="flex gap-2 items-start">
+          <Award className="h-4 w-4 mt-1 flex-shrink-0" />
+          <p className="text-sm">Certificação Fullstack - Mimo.org</p>
+        </div>
+        <div className="flex gap-2 items-start">
+          <Award className="h-4 w-4 mt-1 flex-shrink-0" />
+          <p className="text-sm">Imersão Dev Front-End e Back-End - Google & Dev</p>
+        </div>
+        <div className="flex gap-2 items-start">
+          <Award className="h-4 w-4 mt-1 flex-shrink-0" />
+          <p className="text-sm">Curso de Lógica de Programação - Mimo.org</p>
+        </div>
       </div>
     </CardContent>
   </Card>
@@ -145,6 +173,7 @@ const BentoGrid: React.FC = () => {
         <DevSkillsCard />
         <UiUxSkillsCard />
         <ToolsCard />
+        <EducationCard />
         <LocationCard />
         <SocialsCard />
         <div className="md:col-span-1">
