@@ -214,60 +214,6 @@ const AboutMeCard = () => (
   </Card>
 );
 
-const FeaturedProjectCard = () => (
-  <Card className="overflow-hidden h-full md:col-span-2">
-    <CardContent className="p-6">
-      <h3 className="text-xl font-oswald font-medium mb-4 flex items-center gap-2">
-        <Star className="h-5 w-5" />
-        FEATURED PROJECT
-      </h3>
-      <div className="mb-4">
-        <Carousel className="w-full">
-          <CarouselContent>
-            <CarouselItem>
-              <div className="bg-gray-100 h-48 flex items-center justify-center rounded">
-                <p className="text-gray-500">Project Screenshot 1</p>
-              </div>
-            </CarouselItem>
-            <CarouselItem>
-              <div className="bg-gray-100 h-48 flex items-center justify-center rounded">
-                <p className="text-gray-500">Project Screenshot 2</p>
-              </div>
-            </CarouselItem>
-            <CarouselItem>
-              <div className="bg-gray-100 h-48 flex items-center justify-center rounded">
-                <p className="text-gray-500">Project Screenshot 3</p>
-              </div>
-            </CarouselItem>
-          </CarouselContent>
-          <CarouselPrevious className="-left-4" />
-          <CarouselNext className="-right-4" />
-        </Carousel>
-      </div>
-      <h4 className="font-medium mb-2">Portfolio Website Redesign</h4>
-      <p className="text-sm text-gray-700 mb-3">
-        Complete redesign of a personal portfolio website using React, Tailwind CSS, and modern design principles. 
-        Focused on performance optimization and responsive design.
-      </p>
-      <div className="flex flex-wrap gap-2 mb-3">
-        <Badge className="bg-black text-white">React</Badge>
-        <Badge className="bg-black text-white">Tailwind CSS</Badge>
-        <Badge className="bg-black text-white">GSAP</Badge>
-      </div>
-      <div className="flex gap-2">
-        <Button variant="outline" size="sm" className="text-xs border-black">
-          <Link className="h-3.5 w-3.5 mr-1" />
-          Live Demo
-        </Button>
-        <Button variant="outline" size="sm" className="text-xs border-black">
-          <Github className="h-3.5 w-3.5 mr-1" />
-          View Code
-        </Button>
-      </div>
-    </CardContent>
-  </Card>
-);
-
 const ExperienceCard = () => (
   <Card className="overflow-hidden h-full md:col-span-2">
     <CardContent className="p-6">
@@ -368,7 +314,6 @@ const BentoGrid: React.FC = () => {
       <h2 className="text-3xl md:text-4xl font-playfair font-bold mb-12">About Me</h2>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         <AboutMeCard />
-        <FeaturedProjectCard />
         <ExperienceCard />
         <DevSkillsCard />
         <UiUxSkillsCard />
