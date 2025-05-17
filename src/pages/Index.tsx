@@ -12,7 +12,9 @@ const Index: React.FC = () => {
       <Navbar />
       <main className="flex-grow">
         <Hero />
+        <div className="w-full h-0.5 bg-gradient-to-r from-transparent via-gray-200 to-transparent my-12 mx-auto max-w-6xl" />
         <Portfolio />
+        <div className="w-full h-0.5 bg-gradient-to-r from-transparent via-gray-200 to-transparent my-12 mx-auto max-w-6xl" />
         <BentoGrid />
       </main>
       <Footer />
