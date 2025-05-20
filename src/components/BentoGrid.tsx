@@ -2,11 +2,11 @@
 import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { MapPin, Linkedin, Instagram, Github, Mail, FileText, Figma, Layers, PenTool, Code, GitBranch, GraduationCap, Award, Briefcase, Star } from 'lucide-react';
+import { MapPin, Linkedin, Instagram, Github, Mail, FileText, Figma, Layers, PenTool, Code, GitBranch, GraduationCap, Award, Briefcase, Star, Phone } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const AboutMeCard = () => (
-  <Card className="overflow-hidden h-full md:col-span-2 bg-black text-white">
+  <Card className="overflow-hidden h-full bg-black text-white md:col-span-2 md:row-span-1">
     <CardContent className="p-6">
       <h3 className="text-2xl font-oswald font-medium mb-4">ABOUT ME</h3>
       <p className="text-gray-200">
@@ -20,7 +20,7 @@ const AboutMeCard = () => (
 );
 
 const ExperienceCard = () => (
-  <Card className="overflow-hidden h-full md:col-span-2 border-2 border-gray-200">
+  <Card className="overflow-hidden h-full border-2 border-gray-200 md:col-span-2 md:row-span-1">
     <CardContent className="p-6">
       <h3 className="text-xl font-oswald font-medium mb-4 flex items-center gap-2">
         <Briefcase className="h-5 w-5" />
@@ -64,7 +64,7 @@ const SkillLevelCard = () => {
   ];
 
   return (
-    <Card className="overflow-hidden h-full md:row-span-2">
+    <Card className="overflow-hidden h-full md:col-span-1 md:row-span-2">
       <CardContent className="p-6">
         <h3 className="text-xl font-oswald font-medium mb-6">SKILL PROFICIENCY</h3>
         <div className="space-y-4">
@@ -159,24 +159,24 @@ const EducationCard = () => (
     <CardContent className="p-6">
       <h3 className="text-xl font-oswald font-medium mb-4 flex items-center gap-2">
         <GraduationCap className="h-5 w-5" />
-        FORMAÇÃO & CERTIFICAÇÕES
+        EDUCATION & CERTIFICATIONS
       </h3>
       <div className="space-y-3">
         <div className="flex gap-2 items-start">
           <Award className="h-4 w-4 mt-1 flex-shrink-0" />
-          <p className="text-sm">Bacharelado em Ciência da Computação - Estácio | 2022 - Atual</p>
+          <p className="text-sm">Bachelor of Computer Science - Estácio | 2022 - Present</p>
         </div>
         <div className="flex gap-2 items-start">
           <Award className="h-4 w-4 mt-1 flex-shrink-0" />
-          <p className="text-sm">Certificação Fullstack - Mimo.org</p>
+          <p className="text-sm">Fullstack Certification - Mimo.org</p>
         </div>
         <div className="flex gap-2 items-start">
           <Award className="h-4 w-4 mt-1 flex-shrink-0" />
-          <p className="text-sm">Imersão Dev Front-End e Back-End - Google & Dev</p>
+          <p className="text-sm">Front-End and Back-End Dev Immersion - Google & Dev</p>
         </div>
         <div className="flex gap-2 items-start">
           <Award className="h-4 w-4 mt-1 flex-shrink-0" />
-          <p className="text-sm">Curso de Lógica de Programação - Mimo.org</p>
+          <p className="text-sm">Programming Logic Course - Mimo.org</p>
         </div>
       </div>
     </CardContent>
@@ -184,7 +184,7 @@ const EducationCard = () => (
 );
 
 const TestimonialsCard = () => (
-  <Card className="overflow-hidden h-full">
+  <Card className="overflow-hidden h-full border-2 border-gray-200">
     <CardContent className="p-6">
       <h3 className="text-xl font-oswald font-medium mb-4">TESTIMONIALS</h3>
       <div className="space-y-4">
@@ -230,80 +230,64 @@ const AchievementsCard = () => (
   </Card>
 );
 
-const LocationCard = () => (
-  <Card className="overflow-hidden h-full">
-    <CardContent className="p-6 flex flex-col justify-between h-full">
-      <h3 className="text-xl font-oswald font-medium mb-4">LOCATION</h3>
-      <div className="flex items-center gap-2">
-        <MapPin className="h-5 w-5" />
-        <span>Petrolina, Brazil</span>
-      </div>
-    </CardContent>
-  </Card>
-);
-
-const AvailabilityStatusCard = () => (
-  <Card className="overflow-hidden h-full">
-    <CardContent className="p-6 flex flex-col justify-between h-full">
-      <h3 className="text-xl font-oswald font-medium mb-2">AVAILABILITY STATUS</h3>
-      <div className="flex flex-col items-center text-center gap-2">
-        <Badge className="bg-green-500 text-white px-3 py-1">Available for Work</Badge>
-        <p className="text-sm text-gray-700">Open to freelance projects and full-time positions</p>
-      </div>
-    </CardContent>
-  </Card>
-);
-
-const SocialsCard = () => (
-  <Card className="overflow-hidden h-full bg-gray-50">
+const ContactInfoCard = () => (
+  <Card className="overflow-hidden h-full md:col-span-2">
     <CardContent className="p-6">
-      <h3 className="text-xl font-oswald font-medium mb-4">SOCIALS</h3>
-      <div className="flex flex-col gap-4">
-        <a href="#" className="flex items-center gap-2 hover:text-gray-600 transition-colors">
-          <Linkedin className="h-5 w-5" />
-          <span>LinkedIn</span>
-        </a>
-        <a href="#" className="flex items-center gap-2 hover:text-gray-600 transition-colors">
-          <Instagram className="h-5 w-5" />
-          <span>Instagram</span>
-        </a>
-        <a href="#" className="flex items-center gap-2 hover:text-gray-600 transition-colors">
-          <Github className="h-5 w-5" />
-          <span>GitHub</span>
-        </a>
+      <h3 className="text-xl font-oswald font-medium mb-4">CONTACT INFORMATION</h3>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="flex flex-col gap-3">
+          <div className="flex items-center gap-2">
+            <Mail className="h-5 w-5" />
+            <span>henrcau@gmail.com</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <Phone className="h-5 w-5" />
+            <span>+55 87 98859-1862</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <MapPin className="h-5 w-5" />
+            <span>Petrolina, Brazil</span>
+          </div>
+        </div>
+        
+        <div className="flex flex-col gap-3">
+          <a href="#" className="flex items-center gap-2 hover:text-gray-600 transition-colors">
+            <Linkedin className="h-5 w-5" />
+            <span>LinkedIn</span>
+          </a>
+          <a href="#" className="flex items-center gap-2 hover:text-gray-600 transition-colors">
+            <Github className="h-5 w-5" />
+            <span>GitHub</span>
+          </a>
+          <a href="#" className="flex items-center gap-2 hover:text-gray-600 transition-colors">
+            <Instagram className="h-5 w-5" />
+            <span>Instagram</span>
+          </a>
+        </div>
       </div>
     </CardContent>
   </Card>
 );
 
-const ContactCard = () => (
-  <Card className="overflow-hidden h-full border-2 border-gray-200">
-    <CardContent className="p-6 flex flex-col gap-4">
-      <Button className="w-full bg-black text-white hover:bg-gray-800 gap-2">
-        <Mail className="h-4 w-4" />
-        Contact Me
-      </Button>
-      <div className="text-sm">
-        <p className="flex items-center gap-2 mb-2">
-          <Mail className="h-4 w-4" /> 
-          henrcau@gmail.com
+const CallToActionCard = () => (
+  <Card className="overflow-hidden h-full border-2 border-gray-200 md:col-span-2 bg-gray-50">
+    <CardContent className="p-6 flex flex-col md:flex-row items-center gap-6 justify-between">
+      <div>
+        <h3 className="text-xl font-oswald font-medium mb-2">READY TO COLLABORATE?</h3>
+        <p className="text-gray-600 mb-4 md:mb-0">
+          Currently available for freelance projects and full-time positions.
         </p>
-        <p>+55 87 98859-1862</p>
       </div>
-    </CardContent>
-  </Card>
-);
-
-const CvCard = () => (
-  <Card className="overflow-hidden h-full border-2 border-gray-200">
-    <CardContent className="p-6 flex flex-col items-center justify-center">
-      <Button variant="outline" className="w-full border-black gap-2 mb-3">
-        <FileText className="h-4 w-4" />
-        View CV
-      </Button>
-      <p className="text-sm text-gray-600 text-center">
-        Aqui você encontrará minha jornada profissional, habilidades e experiências detalhadas.
-      </p>
+      <div className="flex flex-col sm:flex-row gap-3">
+        <Button className="bg-black text-white hover:bg-gray-800 gap-2">
+          <Mail className="h-4 w-4" />
+          Contact Me
+        </Button>
+        <Button variant="outline" className="border-black gap-2">
+          <FileText className="h-4 w-4" />
+          Download CV
+        </Button>
+      </div>
     </CardContent>
   </Card>
 );
@@ -316,33 +300,27 @@ const BentoGrid: React.FC = () => {
         <p className="text-gray-600 mb-12 max-w-2xl">A snapshot of my professional journey, skills and experiences that define my work as a developer and designer.</p>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {/* Principal Information - First Row with more visual weight */}
+          {/* Primeiro tier - Informações principais para recrutadores */}
           <AboutMeCard />
+          <ExperienceCard />
+          
+          {/* Segundo tier - Skills técnicas que recrutadores buscam */}
           <SkillLevelCard />
           
-          {/* Professional Information - Second row with medium visual weight */}
-          <ExperienceCard />
-          <EducationCard />
-          
-          {/* Technical Skills - Group skills together */}
-          <div className="grid grid-cols-1 gap-4 md:col-span-2">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:col-span-2">
             <DevSkillsCard />
             <UiUxSkillsCard />
             <ToolsCard />
+            <EducationCard />
           </div>
           
-          {/* Achievements and Testimonials - Professional validation */}
-          <AchievementsCard />
+          {/* Terceiro tier - Validação profissional e diferencial */}
           <TestimonialsCard />
+          <AchievementsCard />
           
-          {/* Contact Information - Easy access grouped together */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:col-span-3">
-            <SocialsCard />
-            <ContactCard />
-            <CvCard />
-            <AvailabilityStatusCard />
-            <LocationCard />
-          </div>
+          {/* Quarto tier - Contato e call to action bem visíveis */}
+          <ContactInfoCard />
+          <CallToActionCard />
         </div>
       </div>
     </section>
@@ -350,3 +328,4 @@ const BentoGrid: React.FC = () => {
 };
 
 export default BentoGrid;
+
