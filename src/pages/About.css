@@ -1,0 +1,727 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.navegation-visible {
+    display: block;
+    /* Adicione outras propriedades de animação ou transição, se necessário */
+}
+
+.navegation-hidden {
+    display: none;
+}
+
+.nav {
+    position: absolute;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-family: "Advercase";
+    width: 100%;
+    color: black;
+    font-size: 0.8vw;
+    z-index: 5;
+    top: 0%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+}
+
+.one-page {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    z-index: 5;
+    background-color: white;
+}
+
+.two-page {
+    display: flex;
+    justify-content: center;
+    background-color: white;
+    width: 100%;
+    height: 120vh;
+    z-index: 4;
+}
+
+.description-about {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    font-family: "Manrope";
+    text-align: justify;
+    /* Justifica o texto */
+    width: 30vw;
+    font-size: 1.4rem;
+    gap: 2vh;
+    margin-top: 10vh;
+    margin-bottom: 18vh;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+.three-page {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    background-color: white;
+    z-index: 3;
+}
+
+.description-about.fade-up {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.logo {
+    position: relative;
+    left: -9vw;
+}
+
+.letme {
+    position: relative;
+    right: -9vw;
+}
+
+#lett {
+    position: relative;
+    top: 0.8vh;
+    left: 9vw;
+    transition: all 0.3s ease;
+    z-index: 1;
+}
+
+#lett::before {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 10px;
+    height: 10px;
+    background-color: black;
+    border-radius: 50px;
+    top: 5px;
+    left: -20px;
+    transition: all 0.3s ease;
+    z-index: -1;
+}
+
+#lett:hover::before {
+    width: 100%;
+    height: 100%;
+    top: -0.5vh;
+    left: 0;
+    border-radius: 50p;
+}
+
+#lett:hover {
+    color: white;
+    padding: 0 10px;
+}
+
+.menu {
+    display: flex;
+    gap: 2.5vw;
+    font-family: "Advercase";
+}
+
+
+.container-about {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    max-width: 100%;
+    height: 380vh;
+    color: black;
+    overflow-x: hidden;
+}
+
+.title-about {
+    position: relative;
+    display: flex;
+    top: 3vh;
+    color: black;
+    transform: translateY(150%);
+    font-size: 6vw;
+    margin-bottom: 12vh;
+    opacity: 0;
+    overflow: hidden;
+}
+
+.frontend {
+    width: 12vw;
+}
+
+.subtitle {
+    position: relative;
+    display: flex;
+    top: 6vh;
+    opacity: 0.5;
+    font-size: 1.2vw;
+    gap: 35vw;
+    opacity: 0;
+    transform: translateY(80%);
+}
+
+.img-main {
+    position: relative;
+    top: 10vh;
+    background-color: rgb(185, 185, 185);
+    width: 50%;
+    height: 60vh;
+    margin-bottom: 20vh;
+}
+
+
+.skill {
+    display: flex;
+    flex-direction: row;
+    margin-top: 2rem;
+    margin-bottom: 40vh;
+}
+
+.name-skill {
+    position: relative;
+    font-size: 6vw;
+    margin-right: 20vw;
+    opacity: 0;
+}
+
+.container-skills {
+    display: grid;
+    position: relative;
+    top: 2vh;
+    grid-template-columns: repeat(2, 1fr);
+    /* Duas colunas de tamanho igual */
+    gap: 20px;
+    /* Espaçamento entre os itens */
+}
+
+.title-skill {
+    position: relative;
+    left: -2vw;
+    font-size: 1.8vw;
+    white-space: nowrap;
+    display: inline-block;
+    animation: marquee 10s linear infinite;
+}
+
+.title-skill::after {
+    content: attr(data-text);
+    position: absolute;
+    left: 100%;
+    white-space: nowrap;
+}
+
+@keyframes marquee {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+.content-left {
+    position: relative;
+    transform: translateX(-50%);
+    opacity: 0;
+    z-index: 1;
+}
+
+.content-right {
+    opacity: 0;
+    position: relative;
+    transform: translateX(50%);
+    z-index: 2;
+}
+
+.content {
+    display: flex;
+    overflow: hidden;
+    flex-direction: column;
+    background-color: #D9D9D9;
+    width: 20vw;
+    height: 35vh;
+    padding: 2vw;
+}
+
+.title-skill {
+    margin-bottom: 1.8vh;
+}
+
+.content .skill-description {
+    font-family: Manrope;
+    opacity: 0.6;
+    font-size: 1.2vw;
+}
+
+
+.footer-about {
+    display: flex;
+    position: fixed;
+    left: 0vw;
+    top: 60%;
+    z-index: 1;
+    flex-direction: column;
+    padding: 2vh;
+    color: white;
+    background-color: black;
+    width: 100vw;
+    height: 60vh;
+    z-index: 1;
+}
+
+.logo-footer {
+    position: relative;
+    font-family: "Nim";
+    left: 2.5vw;
+    color: white;
+    font-size: 1vw;
+}
+
+.one-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.links-about {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    gap: 5vw;
+    font-size: 1vw;
+    left: 17%;
+}
+
+/* Adiciona estas regras ao seu arquivo About.css */
+
+.pages,
+.pages-two,
+.pages-three {
+    position: relative;
+    cursor: pointer;
+}
+
+.pages span,
+.pages-two span,
+.pages-three span {
+    display: inline-block;
+    position: relative;
+    color: white;
+    text-decoration: none;
+}
+
+.pages span::after,
+.pages-two span::after,
+.pages-three span::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 0;
+    height: 1px;
+    background-color: white;
+    transition: width 0.3s ease-in-out;
+}
+
+.pages span:hover::after,
+.pages-two span:hover::after,
+.pages-three span:hover::after {
+    width: 100%;
+}
+
+.pages {
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+}
+
+.pages-two {
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+}
+
+.pages-three {
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+}
+
+.getIn {
+    position: relative;
+    top: 3vh;
+    border: 1px solid white;
+    height: 5vh;
+    width: 11vw;
+    transition: all 0.5s;
+}
+
+.getIn:hover {
+    background-color: white;
+    color: black;
+}
+
+.description-footer {
+    display: flex;
+    flex-direction: column;
+    margin-right: 1vw;
+    font-size: 1vw;
+    width: 15vw;
+}
+
+.nam-footer {
+    font-family: "Orbitron";
+    white-space: nowrap;
+    color: white;
+    font-size: 10vw;
+    margin-top: 4rem;
+}
+
+
+.links-redes {
+    display: flex;
+    gap: 5vw;
+}
+
+.overlay-left-exit {
+    background-color: white;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    transition: transform 1s ease-in-out;
+    z-index: 5;
+    position: absolute;
+    transform: translateX(0%);
+    z-index: 1000;
+}
+
+.overlay-right-exit {
+    top: 0;
+    width: 50%;
+    height: 100%;
+    transition: transform 1s ease-in-out;
+    z-index: 5;
+    background-color: white;
+    position: absolute;
+    right: 0;
+    transform: translateX(0%);
+    z-index: 1000;
+}
+
+.menu-overlay {
+    pointer-events: none;
+}
+
+
+.overlay-left {
+    background-color: white;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    transition: transform 1s ease-in-out;
+    z-index: 5;
+    position: absolute;
+    left: -50%;
+    z-index: 1000;
+}
+
+.overlay-right {
+    top: 0;
+    width: 50%;
+    height: 100%;
+    transition: transform 1s ease-in-out;
+    z-index: 5;
+    background-color: white;
+    position: absolute;
+    left: 100%;
+    z-index: 1000;
+}
+
+.footer-about>* {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.footer-about>*.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.about-back {
+    background-color: black;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    text-align: center;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+}
+
+@media (max-width: 1440px) {
+    #nav {
+        font-size: 1.1vw;
+    }
+
+    .container-about {
+        height: 380vh;
+    }
+
+    .title-about {
+        font-size: 8vw;
+    }
+
+    .footer-about {
+        top: 55%;
+    }
+
+    .one-row {
+        position: relative;
+        top: 5vh;
+    }
+
+    .description-about {
+        width: 39vw;
+        font-size: 1.3rem;
+    }
+
+    .content .skill-description {
+        font-size: 1.4vw;
+    }
+
+    .links-about {
+        display: flex;
+        top: 2vh;
+        font-size: 16px;
+    }
+
+    .name-skill {
+        font-size: 6vw !important;
+        left: -2vw !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .container-about {
+        height: 400vh;
+    }
+
+    .title-about {
+        top: 6vh;
+        font-size: 10vw;
+    }
+
+    .subtitle {
+        font-size: 2vw;
+    }
+
+    .footer-about {
+        top: 45%;
+    }
+
+    .one-row {
+        position: relative;
+        left: -3vw;
+        top: 5vh;
+    }
+
+    .description-about {
+        top: 5vh;
+        width: 47vw;
+        font-size: 1.1rem;
+        margin-bottom: 0;
+    }
+
+    .skill {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .name-skill {
+        position: relative;
+        left: -7vw !important;
+        font-size: 9vw;
+        opacity: 0;
+        margin: 0;
+    }
+
+    .content {
+        width: 35vw;
+    }
+
+    .title-skill {
+        font-size: 3vw;
+    }
+
+    .content .skill-description {
+        font-size: 2.5vw;
+    }
+
+    .links-about {
+        font-size: 1.7vw;
+    }
+
+    .description-footer {
+        position: relative;
+        left: 4vw;
+        font-size: 2vw;
+    }
+
+    .getIn {
+        width: 15vw;
+    }
+}
+
+@media (max-width: 425px) {
+    #nav {
+        display: none;
+    }
+    
+    .container-about {
+        height: 450vh;
+    }
+
+    .menu-option {
+        opacity: 1;
+        left: 85vw;
+    }
+
+    .title-about {
+        font-size: 17vw;
+        top: 3vh;
+    }
+
+    .subtitle {
+        font-size: 4vw;
+        top: 2vh;
+    }
+
+    .img-main {
+        top: 10vh;
+    }
+
+    .two-page {
+        font-family: "Playfair Display", serif !important;
+    }
+
+    .description-about {
+        font-family: "Playfair Display", serif !important;
+        width: 70%;
+        font-size: 16px;
+    }
+
+    .skill {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .three-page {
+        height: 150vh;
+    }
+
+    .name-skill {
+        margin-top: 14vh;
+        left: -15vw !important;
+        font-size: 12vw !important;
+        margin-bottom: 2vh;
+    }
+
+    .container-skills {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .content {
+        width: 70vw;
+    }
+
+    .title-skill {
+        font-size: 5vw;
+    }
+
+    .content .skill-description {
+        text-align: justify;
+        font-size: 4vw;
+        font-family: "Playfair Display", serif !important;
+    }
+
+    .logo-footer {
+        display: none;
+    }
+
+    .one-row {
+        display: flex;
+        flex-direction: column;
+        box-sizing: border-box;
+    }
+
+    .links-about {
+        display: flex;
+        font-size: 16px;
+        left: 3vw;
+
+    }
+
+    .description-footer {
+        position: relative;
+        top: 4vh;
+        width: 50%;
+        left: 50vw;
+        font-size: 16px;
+    }
+
+    .getIn {
+        width: 40vw;
+    }
+
+    .nam-footer {
+        position: relative;
+        font-size: 12vw;
+        top: 5rem;
+        white-space: nowrap;
+    }
+}
+
+@media (max-width: 320px) {
+    .three-page {
+        height: 150vh;
+    }
+
+    .name-skill {
+        margin-top: 25vh;
+    }
+}
+
+
+@supports (-webkit-appearance: none) {
+    .content-left {
+        transform: translateX(50%) translateZ(0);
+    }
+
+    .content-right {
+        transform: translateX(0%) translateZ(0);
+    }
+}
+
+.content-left,
+.content-right {
+    will-change: transform, opacity;
+    transform: translateZ(0);
+}

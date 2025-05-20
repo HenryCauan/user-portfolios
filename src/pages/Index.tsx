@@ -1,12 +1,36 @@
-
-import React from 'react';
+import React, { useEffect } from 'react';
 import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
 import Portfolio from '../components/Portfolio';
 import BentoGrid from '../components/BentoGrid';
 import Footer from '../components/Footer';
+import Lenis from '@studio-freight/lenis';
 
 const Index: React.FC = () => {
+  useEffect(() => {
+    // Configuração do Lenis
+    const lenis = new Lenis({
+      duration: 2,
+      easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      direction: 'vertical' as const,
+      gestureDirection: 'vertical' as const,
+      smooth: true,
+      smoothTouch: false,
+      touchMultiplier: 2,
+    });
+
+    const raf = (time: number) => {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    };
+
+    requestAnimationFrame(raf);
+
+    return () => {
+      lenis.destroy();
+    };
+  }, []);
+
   return (
     <div className="min-h-screen bg-white text-black flex flex-col">
       <Navbar />
