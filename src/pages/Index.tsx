@@ -1,4 +1,5 @@
-import React, { useEffect } from 'react';
+
+import React from 'react';
 import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
 import Portfolio from '../components/Portfolio';
@@ -6,30 +7,18 @@ import BentoGrid from '../components/BentoGrid';
 import Footer from '../components/Footer';
 import Lenis from '@studio-freight/lenis';
 
-interface LenisOptions {
-  duration: number;
-  easing: (t: number) => number;
-  direction: 'vertical' | 'horizontal';
-  gestureDirection: 'vertical' | 'horizontal';
-  smooth: boolean;
-  smoothTouch: boolean;
-  touchMultiplier: number;
-}
-
 const Index: React.FC = () => {
   useEffect(() => {
     // Configuração do Lenis
-    const lenisOptions: LenisOptions = {
+    const lenis = new Lenis({
       duration: 2,
       easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      direction: 'vertical',
-      gestureDirection: 'vertical',
+      direction: 'vertical' as const,
+      gestureDirection: 'vertical' as const,
       smooth: true,
       smoothTouch: false,
       touchMultiplier: 2,
-    };
-
-    const lenis = new Lenis(lenisOptions);
+    });
 
     const raf = (time: number) => {
       lenis.raf(time);
