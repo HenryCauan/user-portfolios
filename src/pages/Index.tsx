@@ -9,11 +9,10 @@ import Lenis from '@studio-freight/lenis';
 
 const Index: React.FC = () => {
   useEffect(() => {
-    // Enhanced smooth scrolling configuration
+    // Enhanced smooth scrolling configuration - fixed type error by removing 'direction' property
     const lenis = new Lenis({
       duration: 1.2,
       easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      direction: 'vertical' as const,
       gestureDirection: 'vertical' as const,
       smooth: true,
       smoothTouch: false,
