@@ -26,7 +26,7 @@ const Navbar: React.FC = () => {
       y: 0,
       transition: {
         duration: 0.6,
-        ease: "easeOut", // Fixed the invalid cubic-bezier easing
+        ease: [0.6, 0.05, -0.01, 0.9],
       }
     }
   };
@@ -39,7 +39,7 @@ const Navbar: React.FC = () => {
       transition: {
         delay: i * 0.1,
         duration: 0.5,
-        ease: "easeOut", // Fixed the invalid cubic-bezier easing
+        ease: [0.6, 0.05, -0.01, 0.9],
       }
     })
   };
@@ -96,7 +96,7 @@ const Navbar: React.FC = () => {
               animate={{ 
                 opacity: 1, 
                 y: 0, 
-                transition: { delay: i * 0.1 + 0.3, ease: "easeOut" } 
+                transition: { delay: i * 0.1 + 0.3 } 
               }}
             >
               <Link 

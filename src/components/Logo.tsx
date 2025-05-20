@@ -12,7 +12,7 @@ const Logo: React.FC = () => {
       transition: {
         delay: i * 0.05,
         duration: 0.5,
-        ease: "easeOut", // Fixed the invalid cubic-bezier easing
+        ease: [0.6, 0.05, -0.01, 0.9],
       }
     })
   };
@@ -40,7 +40,7 @@ const Logo: React.FC = () => {
                 transition={{ 
                   delay: letters.length * 0.05 + 0.2,
                   duration: 0.8,
-                  ease: "easeOut", // Fixed the invalid cubic-bezier easing
+                  ease: [0.6, 0.05, -0.01, 0.9]
                 }}
               />
             )}
