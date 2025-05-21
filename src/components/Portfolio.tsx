@@ -24,15 +24,15 @@ const PortfolioItem: React.FC<PortfolioItemProps> = ({ title, category, index })
 
 const Portfolio: React.FC = () => {
   const projects = [
-    { title: "Identidade de Marca Minimalista", category: "Branding" },
-    { title: "Fotografia em Preto e Branco", category: "Fotografia" },
-    { title: "Exploração Tipográfica", category: "Design" },
-    { title: "Visualização Arquitetônica", category: "Modelagem 3D" }
+    { title: "Minimalist Brand Identity", category: "Branding" },
+    { title: "Black & White Photography", category: "Photography" },
+    { title: "Typography Exploration", category: "Design" },
+    { title: "Architectural Visualization", category: "3D Rendering" }
   ];
 
   return (
     <section id="work" className="w-full py-20 px-6 md:px-12">
-      <h2 className="text-3xl md:text-4xl font-bold mb-12">Trabalhos Selecionados</h2>
+      <h2 className="text-3xl md:text-4xl font-bold mb-12">Selected Work</h2>
       <div className="fade-in">
         {projects.map((project, index) => (
           <PortfolioItem 

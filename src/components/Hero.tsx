@@ -64,30 +64,30 @@ const Hero: React.FC = () => {
       
       {/* Professional title with staggered fade-in */}
       <div className="flex flex-wrap justify-center gap-2 mb-6 fade-in" style={{ animationDelay: '0.3s' }}>
-        <Badge className="bg-black text-white py-1.5 px-4 text-sm">Desenvolvedor Frontend</Badge>
-        <Badge className="bg-black text-white py-1.5 px-4 text-sm">Designer UI/UX</Badge>
+        <Badge className="bg-black text-white py-1.5 px-4 text-sm">Frontend Developer</Badge>
+        <Badge className="bg-black text-white py-1.5 px-4 text-sm">UI/UX Designer</Badge>
       </div>
       
       {/* Description with refined typography */}
       <p className="text-lg md:text-xl text-center max-w-2xl text-gray-700 fade-in mb-10 leading-relaxed" style={{ animationDelay: '0.5s' }}>
-        Criando designs elegantes e minimalistas com experiências de usuário intuitivas que dão vida às marcas através de soluções digitais propositais.
+        Creating elegant, minimalist designs and intuitive user experiences that bring brands to life through purposeful digital solutions.
       </p>
       
       {/* Enhanced call to action buttons with hover effects */}
       <div className="flex flex-wrap gap-4 justify-center fade-in" style={{ animationDelay: '0.7s' }}>
         <Button className="bg-black hover:bg-gray-800 text-white px-6 transition-all duration-300 hover:translate-y-[-2px] hover:shadow-lg">
-          Ver Projetos
+          View Projects
         </Button>
         <Button variant="outline" className="border-black hover:bg-gray-100 gap-2 transition-all duration-300 hover:translate-y-[-2px] hover:shadow-lg">
           <Download className="h-4 w-4" />
-          Baixar CV
+          Download CV
         </Button>
       </div>
       
       {/* Enhanced scroll indicator */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce fade-in cursor-pointer" style={{ animationDelay: '1s' }}>
         <div className="flex flex-col items-center gap-2">
-          <span className="text-xs text-gray-400 uppercase tracking-widest">Rolar</span>
+          <span className="text-xs text-gray-400 uppercase tracking-widest">Scroll</span>
           <ArrowDown className="h-4 w-4 text-gray-400" />
         </div>
       </div>
