@@ -1,3 +1,4 @@
+
 import React, { useEffect } from 'react';
 import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
@@ -10,7 +11,6 @@ interface LenisOptions {
   duration: number;
   easing: (t: number) => number;
   direction: 'vertical' | 'horizontal';
-  gestureDirection: 'vertical' | 'horizontal';
   smooth: boolean;
   smoothTouch: boolean;
   touchMultiplier: number;
@@ -18,12 +18,11 @@ interface LenisOptions {
 
 const Index: React.FC = () => {
   useEffect(() => {
-    // Configuração do Lenis
+    // Configure Lenis for smooth scrolling
     const lenisOptions: LenisOptions = {
-      duration: 2,
+      duration: 1.2,
       easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       direction: 'vertical',
-      gestureDirection: 'vertical',
       smooth: true,
       smoothTouch: false,
       touchMultiplier: 2,
@@ -48,9 +47,9 @@ const Index: React.FC = () => {
       <Navbar />
       <main className="flex-grow">
         <Hero />
-        <div className="w-full h-0.5 bg-gradient-to-r from-transparent via-gray-200 to-transparent my-12 mx-auto max-w-6xl" />
+        <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-gray-300 to-transparent my-16 mx-auto max-w-6xl opacity-60" />
         <Portfolio />
-        <div className="w-full h-0.5 bg-gradient-to-r from-transparent via-gray-200 to-transparent my-12 mx-auto max-w-6xl" />
+        <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-gray-300 to-transparent my-16 mx-auto max-w-6xl opacity-60" />
         <BentoGrid />
       </main>
       <Footer />
