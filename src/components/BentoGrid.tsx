@@ -1,8 +1,9 @@
 import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { MapPin, Linkedin, Instagram, Github, Mail, FileText, Figma, Layers, PenTool, Code, GitBranch, GraduationCap, Award, Briefcase, Star } from 'lucide-react';
+import { MapPin, Linkedin, Instagram, Github, Mail, FileText, Figma, Layers, PenTool, Code, GitBranch, GraduationCap, Award, Link, Briefcase, Star, Globe } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 
 const DevSkillsCard = () => (
   <Card className="overflow-hidden h-full">
@@ -309,30 +310,26 @@ const AvailabilityStatusCard = () => (
 
 const BentoGrid: React.FC = () => {
   return (
-    <section className="w-full py-20 px-6 md:px-12 bg-gray-50">
-      <div className="max-w-6xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-playfair font-bold mb-6">About Me</h2>
-        <p className="text-gray-600 mb-12 max-w-2xl">A snapshot of my professional journey, skills and experiences that define my work as a developer and designer.</p>
-        
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <AboutMeCard />
-          <ExperienceCard />
-          <DevSkillsCard />
-          <UiUxSkillsCard />
-          <SkillLevelCard />
-          <ToolsCard />
-          <TestimonialsCard />
-          <EducationCard />
-          <AchievementsCard />
-          <LocationCard />
-          <AvailabilityStatusCard />
-          <SocialsCard />
-          <div className="md:col-span-1">
-            <ContactCard />
-          </div>
-          <div className="md:col-span-1">
-            <CvCard />
-          </div>
+    <section className="w-full py-20 px-6 md:px-12">
+      <h2 className="text-3xl md:text-4xl font-playfair font-bold mb-12">About Me</h2>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <AboutMeCard />
+        <ExperienceCard />
+        <DevSkillsCard />
+        <UiUxSkillsCard />
+        <SkillLevelCard />
+        <ToolsCard />
+        <TestimonialsCard />
+        <EducationCard />
+        <AchievementsCard />
+        <LocationCard />
+        <AvailabilityStatusCard />
+        <SocialsCard />
+        <div className="md:col-span-1">
+          <ContactCard />
+        </div>
+        <div className="md:col-span-1">
+          <CvCard />
         </div>
       </div>
     </section>
