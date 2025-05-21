@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -271,6 +272,31 @@ const TestimonialsCard = () => (
   </Card>
 );
 
+const AchievementsCard = () => (
+  <Card className="overflow-hidden h-full">
+    <CardContent className="p-6">
+      <h3 className="text-xl font-oswald font-medium mb-4 flex items-center gap-2">
+        <Award className="h-5 w-5" />
+        CONQUISTAS
+      </h3>
+      <div className="space-y-3">
+        <div className="flex gap-2 items-start">
+          <Star className="h-4 w-4 mt-1 flex-shrink-0 text-amber-500" />
+          <p className="text-sm">Desenvolvedor Front-End do Mês (TechCorp, Jul 2023)</p>
+        </div>
+        <div className="flex gap-2 items-start">
+          <Star className="h-4 w-4 mt-1 flex-shrink-0 text-amber-500" />
+          <p className="text-sm">Melhor Design UI/UX - Hackathon Interno (2022)</p>
+        </div>
+        <div className="flex gap-2 items-start">
+          <Star className="h-4 w-4 mt-1 flex-shrink-0 text-amber-500" />
+          <p className="text-sm">1º Lugar - Competição de Desenvolvimento Web</p>
+        </div>
+      </div>
+    </CardContent>
+  </Card>
+);
+
 const AvailabilityStatusCard = () => (
   <Card className="overflow-hidden h-full">
     <CardContent className="p-6 flex flex-col justify-between h-full">
@@ -296,6 +322,7 @@ const BentoGrid: React.FC = () => {
         <ToolsCard />
         <TestimonialsCard />
         <EducationCard />
+        <AchievementsCard />
         <LocationCard />
         <AvailabilityStatusCard />
         <SocialsCard />
