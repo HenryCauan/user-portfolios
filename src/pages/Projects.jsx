@@ -160,7 +160,7 @@ const Projects = () => {
                             id='img1'
                         />
                     </div>
-                    <div className="text-[20px] font-ibm font-medium ">H.CAUAN - My Portfolio</div>
+                    <div className="text-[20px] font-ibm font-medium ">H.CAUAN - Portfolio</div>
                     <div className="text-1xl font-ibm opacity-60">Desenvolvimento Frontend • Design UX/UI • Identidade Visual • Responsivo</div>
                 </div>
                 <div className="relative top-[2rem] self-end flex flex-col">
