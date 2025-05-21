@@ -1,9 +1,11 @@
+
 import React, { useEffect, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Cursor from "../components/ui/Cursor";
 import "./Contact.css";
 import Navbar from "../components/Navbar";
+import emailjs from "emailjs-com";
 
 const Contact = () => {
   // Estados para controlar a visibilidade das mensagens de erro
@@ -30,7 +32,7 @@ const Contact = () => {
 
         // Aguarda a animação e depois navega para a página correta
         setTimeout(() => {
-          navigate(targetPath);
+          window.location.href = targetPath;
         }, 1000);
       });
     });
@@ -39,6 +41,7 @@ const Contact = () => {
   useEffect(() => {
     overlayTrigger();
   }, []);
+  
   useEffect(() => {
     // Adiciona um pequeno delay para garantir que o DOM esteja pronto
     setTimeout(() => {
@@ -209,10 +212,10 @@ const Contact = () => {
         </div>
         <div className="contact-links font-ibm" id="contact-animation">
           <span>
-            <i class="ri-mail-fill"></i>henrca@gmail.com
+            <i className="ri-mail-fill"></i>henrca@gmail.com
           </span>
           <span>
-            <i class="ri-map-pin-user-fill"></i>Petrolina - PE, 56320-610,
+            <i className="ri-map-pin-user-fill"></i>Petrolina - PE, 56320-610,
             Brasil
           </span>
           <a href="https://www.instagram.com/henrca__/">
