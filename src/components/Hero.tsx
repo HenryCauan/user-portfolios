@@ -39,42 +39,51 @@ const Hero: React.FC = () => {
   return (
     <section 
       ref={heroRef}
-      className="w-full h-full flex flex-col justify-center items-center relative overflow-hidden bg-black text-white"
+      className="w-full h-screen flex flex-col-reverse md:flex-row overflow-hidden"
     >
-      {/* Visual elements */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(50,50,50,0.3)_0,rgba(0,0,0,0)_70%)]"></div>
-      <div className="absolute top-0 left-0 w-full h-full bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0wIDBoNjB2NjBIMHoiLz48cGF0aCBkPSJNMzAgMzBoMzB2MzBIMzB6IiBmaWxsPSIjZmZmZmZmIiBmaWxsLW9wYWNpdHk9Ii4wMyIvPjxwYXRoIGQ9Ik0wIDMwaDMwdjMwSDB6IiBmaWxsPSIjZmZmZmZmIiBmaWxsLW9wYWNpdHk9Ii4wMyIvPjwvZz48L3N2Zz4=')] opacity-20"></div>
-      
-      {/* Main content container */}
-      <div className="max-w-7xl w-full px-6 md:px-12 flex flex-col md:flex-row items-center justify-center gap-8 md:gap-12 z-10">
-        {/* Name showcase - dramatic vertical styling */}
+      {/* Left side - Creative visuals */}
+      <div className="w-full md:w-1/2 h-full bg-black flex items-center justify-center relative overflow-hidden">
+        {/* Visual grid element */}
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0wIDBoNjB2NjBIMHoiLz48cGF0aCBkPSJNMzAgMzBoMzB2MzBIMzB6IiBmaWxsPSIjZmZmZmZmIiBmaWxsLW9wYWNpdHk9Ii4wMyIvPjxwYXRoIGQ9Ik0wIDMwaDMwdjMwSDB6IiBmaWxsPSIjZmZmZmZmIiBmaWxsLW9wYWNpdHk9Ii4wMyIvPjwvZz48L3N2Zz4=')] opacity-20"></div>
+        
+        {/* Name showcase with horizontal orientation */}
         <h1 
           ref={nameRef}
-          className="text-[8rem] md:text-[12rem] lg:text-[15rem] font-bold tracking-tighter leading-none font-playfair"
-          style={{ writingMode: 'vertical-rl', textOrientation: 'mixed', transform: 'rotate(180deg)' }}
+          className="text-[5rem] md:text-[8rem] lg:text-[10rem] font-bold tracking-tighter leading-none text-white font-playfair relative"
         >
           H.CAUAN
         </h1>
         
-        {/* Content column */}
-        <div ref={contentRef} className="flex flex-col items-start max-w-xl">
+        {/* Decorative elements */}
+        <div className="absolute top-10 left-10 w-20 h-20 border border-white/20 rounded-full"></div>
+        <div className="absolute bottom-10 right-10 w-40 h-40 border border-white/20 rounded-full"></div>
+      </div>
+      
+      {/* Right side - Content */}
+      <div className="w-full md:w-1/2 h-full bg-white flex items-center justify-center p-8 md:p-16">
+        <div ref={contentRef} className="max-w-lg">
           {/* Role badges with improved styling */}
           <div className="flex flex-wrap gap-3 mb-6">
-            <Badge className="bg-white text-black py-2 px-4 text-sm uppercase tracking-wider">Designer</Badge>
-            <Badge className="bg-white text-black py-2 px-4 text-sm uppercase tracking-wider">Desenvolvedor</Badge>
+            <Badge className="bg-black text-white py-2 px-4 text-sm uppercase tracking-wider">Designer</Badge>
+            <Badge className="bg-black text-white py-2 px-4 text-sm uppercase tracking-wider">Desenvolvedor</Badge>
           </div>
           
+          {/* Title */}
+          <h2 className="text-3xl md:text-4xl font-playfair font-bold mb-4">
+            Criando designs com propósito
+          </h2>
+          
           {/* Description with improved typography */}
-          <p className="text-xl md:text-2xl text-gray-300 mb-8 leading-relaxed">
-            Criando designs elegantes e minimalistas com experiências de usuário intuitivas que trazem marcas à vida através de soluções digitais com propósito.
+          <p className="text-xl text-gray-700 mb-8 leading-relaxed">
+            Designs elegantes e minimalistas com experiências de usuário intuitivas que trazem marcas à vida através de soluções digitais com propósito.
           </p>
           
           {/* CTA buttons with improved styling */}
           <div className="flex flex-wrap gap-4">
-            <Button className="bg-white text-black hover:bg-gray-200 px-8 py-6 text-lg transition-all duration-300">
+            <Button className="bg-black text-white hover:bg-gray-800 px-8 py-6 text-lg transition-all duration-300">
               Ver Projetos
             </Button>
-            <Button variant="outline" className="border-white text-white hover:bg-white/10 gap-2 px-8 py-6 text-lg transition-all duration-300">
+            <Button variant="outline" className="border-black text-black hover:bg-black/5 gap-2 px-8 py-6 text-lg transition-all duration-300">
               <Download className="h-5 w-5" />
               Download CV
             </Button>
@@ -83,10 +92,10 @@ const Hero: React.FC = () => {
       </div>
       
       {/* Scroll indicator with improved positioning */}
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce cursor-pointer">
+      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce cursor-pointer hidden md:block">
         <div className="flex flex-col items-center gap-2">
-          <span className="text-xs text-gray-400 uppercase tracking-widest">Scroll</span>
-          <ArrowDown className="h-4 w-4 text-gray-400" />
+          <span className="text-xs uppercase tracking-widest">Scroll</span>
+          <ArrowDown className="h-4 w-4" />
         </div>
       </div>
     </section>
