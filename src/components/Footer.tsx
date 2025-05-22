@@ -6,7 +6,7 @@ const Footer: React.FC = () => {
     <footer id="contact" className="w-full py-12 px-6 md:px-12 border-t border-gray-200">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         <div>
-          <h3 className="text-lg font-medium mb-4">Contact</h3>
+          <h3 className="text-lg font-medium mb-4">Contato</h3>
           <p className="text-gray-600 mb-2">henrcau@gmail.com</p>
           <p className="text-gray-600">+55 87 98859-1862</p>
         </div>
@@ -19,14 +19,19 @@ const Footer: React.FC = () => {
           </div>
         </div>
         <div>
-          <h3 className="text-lg font-medium mb-4">About</h3>
-          <p className="text-gray-600">
-            Minimalist designer focused on creating elegant, purposeful, and timeless designs.
+          <h3 className="text-lg font-medium mb-4">Sobre</h3>
+          <p className="text-gray-600 mb-4">
+            Designer minimalista focado em criar designs elegantes, úteis e intemporais.
           </p>
+          <div className="flex flex-col space-y-2">
+            <a href="#work" className="text-gray-600 hover:text-black transition-colors">Projetos</a>
+            <a href="#about" className="text-gray-600 hover:text-black transition-colors">Sobre</a>
+            <a href="#contact" className="text-gray-600 hover:text-black transition-colors">Contato</a>
+          </div>
         </div>
       </div>
       <div className="mt-12 text-center text-sm text-gray-500">
-        © {new Date().getFullYear()} H.CAUAN. All rights reserved.
+        © {new Date().getFullYear()} H.CAUAN. Todos os direitos reservados.
       </div>
     </footer>
   );
