@@ -3,7 +3,7 @@
 
 Um portfólio minimalista em preto e branco, desenvolvido com Vite, TypeScript e Tailwind CSS. Ideal para desenvolvedores e designers que querem apresentar seus projetos de forma elegante e objetiva.
 
-![screenshot](./screenshot.png)
+![Image](https://github.com/user-attachments/assets/3df1c916-e824-4cb8-9611-a7f6a47c0454)
 
 ## ✨ Características
 
