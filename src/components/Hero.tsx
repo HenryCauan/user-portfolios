@@ -2,92 +2,106 @@
 import React, { useEffect, useRef } from 'react';
 import { ArrowDown, Download } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Badge } from '@/components/ui/badge';
 
 const Hero: React.FC = () => {
-  const textRef = useRef<HTMLHeadingElement>(null);
+  const heroRef = useRef<HTMLDivElement>(null);
+  const nameRef = useRef<HTMLHeadingElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
   
   useEffect(() => {
-    // Simple text animation on load
-    const text = textRef.current;
-    if (text) {
-      text.style.opacity = '0';
-      text.style.transform = 'translateY(20px)';
+    // Sequential animation for elements
+    const hero = heroRef.current;
+    const name = nameRef.current;
+    const content = contentRef.current;
+    
+    if (hero && name && content) {
+      // Initial states
+      name.style.opacity = '0';
+      name.style.transform = 'translateY(30px)';
+      content.style.opacity = '0';
       
+      // Name animation
       setTimeout(() => {
-        text.style.transition = 'all 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
-        text.style.opacity = '1';
-        text.style.transform = 'translateY(0)';
-      }, 300);
+        name.style.transition = 'all 1.5s cubic-bezier(0.16, 1, 0.3, 1)';
+        name.style.opacity = '1';
+        name.style.transform = 'translateY(0)';
+      }, 500);
+      
+      // Content animation
+      setTimeout(() => {
+        content.style.transition = 'all 1s ease-out';
+        content.style.opacity = '1';
+      }, 1200);
     }
   }, []);
 
   return (
-    <section className="w-full min-h-[90vh] flex flex-col justify-center items-center px-6 md:px-12 relative overflow-hidden">
-      {/* Enhanced gradient background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-gray-50 via-white to-gray-50 -z-10"></div>
-      
-      {/* Animated decorative elements */}
-      <div className="absolute w-[500px] h-[500px] rounded-full border border-gray-200 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 opacity-30"></div>
-      <div className="absolute w-[700px] h-[700px] rounded-full border border-gray-200 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 opacity-20"></div>
-      <div className="absolute w-[900px] h-[900px] rounded-full border border-gray-200 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 opacity-10"></div>
-      
-      {/* Animated blobs for visual interest */}
-      <div className="absolute w-64 h-64 rounded-full bg-purple-50 top-1/4 -left-20 blur-3xl opacity-50 animate-pulse"></div>
-      <div className="absolute w-96 h-96 rounded-full bg-blue-50 bottom-1/4 -right-20 blur-3xl opacity-50 animate-pulse" style={{ animationDelay: '2s' }}></div>
-      <div className="absolute w-48 h-48 rounded-full bg-yellow-50 top-3/4 left-1/4 blur-3xl opacity-30 animate-pulse" style={{ animationDelay: '3s' }}></div>
-      
-      {/* Subtle grid pattern overlay */}
-      <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0wIDBoNjB2NjBIMHoiLz48cGF0aCBkPSJNMzAgMzBoMzB2MzBIMzB6IiBmaWxsPSIjZjlmYWZiIiBmaWxsLW9wYWNpdHk9Ii4wMSIvPjxwYXRoIGQ9Ik0wIDMwaDMwdjMwSDB6IiBmaWxsPSIjZjlmYWZiIiBmaWxsLW9wYWNpdHk9Ii4wMSIvPjwvZz48L3N2Zz4=')] opacity-30 -z-10"></div>
-      
-      {/* Enhanced profile avatar with hover effect */}
-      <div className="mb-8 relative group">
-        <div className="absolute inset-0 bg-black/5 rounded-full blur-xl group-hover:blur-2xl transition-all duration-500 opacity-0 group-hover:opacity-100"></div>
-        <Avatar className="h-32 w-32 border-4 border-white shadow-lg transition-transform duration-500 group-hover:scale-105">
-          <AvatarImage src="https://i.pravatar.cc/300" alt="H.CAUAN" />
-          <AvatarFallback className="text-3xl font-bold bg-black text-white">HC</AvatarFallback>
-        </Avatar>
-        <div className="absolute -bottom-2 -right-2 bg-green-400 h-6 w-6 rounded-full border-2 border-white"></div>
+    <section 
+      ref={heroRef}
+      className="w-full h-screen flex flex-col-reverse md:flex-row overflow-hidden"
+    >
+      {/* Left side - Creative visuals with softer black */}
+      <div className="w-full md:w-1/2 h-full bg-gray-900 flex items-center justify-center relative overflow-hidden">
+        {/* Gradient overlay for better transition */}
+        <div className="absolute inset-0 bg-gradient-to-r from-gray-900 to-black opacity-70"></div>
+        
+        {/* Visual grid element with improved visibility */}
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0wIDBoNjB2NjBIMHoiLz48cGF0aCBkPSJNMzAgMzBoMzB2MzBIMzB6IiBmaWxsPSIjZmZmZmZmIiBmaWxsLW9wYWNpdHk9Ii4wNSIvPjxwYXRoIGQ9Ik0wIDMwaDMwdjMwSDB6IiBmaWxsPSIjZmZmZmZmIiBmaWxsLW9wYWNpdHk9Ii4wNSIvPjwvZz48L3N2Zz4=')] opacity-30"></div>
+        
+        {/* Name showcase with horizontal orientation and softer text */}
+        <h1 
+          ref={nameRef}
+          className="text-[5rem] md:text-[8rem] lg:text-[10rem] font-bold tracking-tighter leading-none text-white font-playfair relative z-10"
+        >
+          H.CAUAN
+        </h1>
+        
+        {/* Decorative elements with improved contrast */}
+        <div className="absolute top-10 left-10 w-20 h-20 border border-white/30 rounded-full"></div>
+        <div className="absolute bottom-10 right-10 w-40 h-40 border border-white/30 rounded-full"></div>
+        
+        {/* Subtle design accents to connect with the light theme */}
+        <div className="absolute top-1/4 right-1/4 w-12 h-12 rounded-full bg-white/5 blur-xl"></div>
+        <div className="absolute bottom-1/3 left-1/3 w-24 h-24 rounded-full bg-white/5 blur-xl"></div>
       </div>
       
-      {/* Enhanced name with animated reveal */}
-      <h1 
-        ref={textRef}
-        className="text-6xl md:text-9xl font-playfair font-bold tracking-tighter mb-6 relative"
-      >
-        H.CAUAN
-        <span className="absolute top-0 left-0 w-full h-full flex items-center justify-center">
-          <span className="opacity-5 text-9xl md:text-[12rem] font-bold text-black/10">HC</span>
-        </span>
-      </h1>
-      
-      {/* Professional title with staggered fade-in */}
-      <div className="flex flex-wrap justify-center gap-2 mb-6 fade-in" style={{ animationDelay: '0.3s' }}>
-        <Badge className="bg-black text-white py-1.5 px-4 text-sm">Desenvolvedor Frontend</Badge>
-        <Badge className="bg-black text-white py-1.5 px-4 text-sm">Designer UI/UX</Badge>
+      {/* Right side - Content with subtle gray background for harmony */}
+      <div className="w-full md:w-1/2 h-full bg-gray-50 flex items-center justify-center p-8 md:p-16">
+        <div ref={contentRef} className="max-w-lg">
+          {/* Role badges with improved styling that connects to the dark theme */}
+          <div className="flex flex-wrap gap-3 mb-6">
+            <Badge className="bg-gray-900 text-white py-2 px-4 text-sm uppercase tracking-wider">Designer</Badge>
+            <Badge className="bg-gray-900 text-white py-2 px-4 text-sm uppercase tracking-wider">Desenvolvedor</Badge>
+          </div>
+          
+          {/* Title with softer coloring */}
+          <h2 className="text-3xl md:text-4xl font-playfair font-bold mb-4 text-gray-800">
+            Criando designs com propósito
+          </h2>
+          
+          {/* Description with improved typography and better color harmony */}
+          <p className="text-xl text-gray-600 mb-8 leading-relaxed">
+            Designs elegantes e minimalistas com experiências de usuário intuitivas que trazem marcas à vida através de soluções digitais com propósito.
+          </p>
+          
+          {/* CTA buttons with styling that connects with the dark section */}
+          <div className="flex flex-wrap gap-4">
+            <Button className="bg-gray-900 text-white hover:bg-gray-800 px-8 py-6 text-lg transition-all duration-300">
+              Ver Projetos
+            </Button>
+            <Button variant="outline" className="border-gray-900 text-gray-900 hover:bg-gray-900/5 gap-2 px-8 py-6 text-lg transition-all duration-300">
+              <Download className="h-5 w-5" />
+              Download CV
+            </Button>
+          </div>
+        </div>
       </div>
       
-      {/* Description with refined typography */}
-      <p className="text-lg md:text-xl text-center max-w-2xl text-gray-700 fade-in mb-10 leading-relaxed" style={{ animationDelay: '0.5s' }}>
-        Criando designs elegantes e minimalistas com experiências de usuário intuitivas que dão vida às marcas através de soluções digitais propositais.
-      </p>
-      
-      {/* Enhanced call to action buttons with hover effects */}
-      <div className="flex flex-wrap gap-4 justify-center fade-in" style={{ animationDelay: '0.7s' }}>
-        <Button className="bg-black hover:bg-gray-800 text-white px-6 transition-all duration-300 hover:translate-y-[-2px] hover:shadow-lg">
-          Ver Projetos
-        </Button>
-        <Button variant="outline" className="border-black hover:bg-gray-100 gap-2 transition-all duration-300 hover:translate-y-[-2px] hover:shadow-lg">
-          <Download className="h-4 w-4" />
-          Baixar CV
-        </Button>
-      </div>
-      
-      {/* Enhanced scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce fade-in cursor-pointer" style={{ animationDelay: '1s' }}>
+      {/* Scroll indicator with improved visibility and styling */}
+      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce cursor-pointer hidden md:block text-gray-600">
         <div className="flex flex-col items-center gap-2">
-          <span className="text-xs text-gray-400 uppercase tracking-widest">SCROLL</span>
+          <span className="text-xs text-gray-400 uppercase tracking-widest">Rolar</span>
           <ArrowDown className="h-4 w-4 text-gray-400" />
         </div>
       </div>

@@ -11,7 +11,7 @@ const Footer: React.FC = () => {
           <p className="text-gray-600">+55 87 98859-1862</p>
         </div>
         <div>
-          <h3 className="text-lg font-medium mb-4">Redes Sociais</h3>
+          <h3 className="text-lg font-medium mb-4">Social</h3>
           <div className="flex flex-col space-y-2">
             <a href="#" className="text-gray-600 hover:text-black transition-colors">Instagram</a>
             <a href="#" className="text-gray-600 hover:text-black transition-colors">Dribbble</a>
@@ -20,9 +20,14 @@ const Footer: React.FC = () => {
         </div>
         <div>
           <h3 className="text-lg font-medium mb-4">Sobre</h3>
-          <p className="text-gray-600">
-            Designer minimalista focado em criar designs elegantes, propositais e atemporais.
+          <p className="text-gray-600 mb-4">
+            Designer minimalista focado em criar designs elegantes, úteis e intemporais.
           </p>
+          <div className="flex flex-col space-y-2">
+            <a href="#work" className="text-gray-600 hover:text-black transition-colors">Projetos</a>
+            <a href="#about" className="text-gray-600 hover:text-black transition-colors">Sobre</a>
+            <a href="#contact" className="text-gray-600 hover:text-black transition-colors">Contato</a>
+          </div>
         </div>
       </div>
       <div className="mt-12 text-center text-sm text-gray-500">
