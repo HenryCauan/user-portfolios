@@ -1,6 +1,3 @@
-Claro! Aqui está um exemplo de um README.md elegante e informativo para o seu projeto no GitHub `user-portfolios`, com base na descrição que você forneceu:
-
----
 
 # 🖤 user-portfolios
 
