@@ -42,7 +42,7 @@ Abra [http://localhost:5173](http://localhost:5173) no navegador.
 
 ## 🧱 Estrutura
 
-
+```
 user-portfolios/
 ├── public/
 ├── src/
@@ -53,7 +53,7 @@ user-portfolios/
 ├── tailwind.config.ts
 ├── index.html
 └── vite.config.ts
-
+```
 
 ## 🧑‍🎨 Personalização
 
