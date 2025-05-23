@@ -87,7 +87,7 @@ const Hero: React.FC = () => {
       {/* Enhanced scroll indicator */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce fade-in cursor-pointer" style={{ animationDelay: '1s' }}>
         <div className="flex flex-col items-center gap-2">
-          <span className="text-xs text-gray-400 uppercase tracking-widest">Rolar</span>
+          <span className="text-xs text-gray-400 uppercase tracking-widest">SCROLL</span>
           <ArrowDown className="h-4 w-4 text-gray-400" />
         </div>
       </div>
