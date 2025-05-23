@@ -71,9 +71,3 @@ Este projeto está licenciado sob a **MIT License**.
 
 Feito com 💻 por [HenryCauan](https://github.com/HenryCauan)
 
-```
-
----
-
-Se quiser, posso gerar também um `screenshot.png` estilizado ou montar uma badge personalizada. Deseja adicionar suporte para temas escuro/claro no futuro?
-```
