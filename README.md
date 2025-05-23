@@ -26,7 +26,7 @@ Um portfólio minimalista em preto e branco, desenvolvido com Vite, TypeScript e
 
 Clone o repositório e instale as dependências:
 
-
+```
 git clone https://github.com/HenryCauan/user-portfolios.git
 cd user-portfolios
 npm install
@@ -39,6 +39,7 @@ npm run dev
 
 
 Abra [http://localhost:5173](http://localhost:5173) no navegador.
+```
 
 ## 🧱 Estrutura
 
