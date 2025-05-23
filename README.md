@@ -2,7 +2,6 @@ Claro! Aqui está um exemplo de um README.md elegante e informativo para o seu p
 
 ---
 
-````markdown
 # 🖤 user-portfolios
 
 Um portfólio minimalista em preto e branco, desenvolvido com Vite, TypeScript e Tailwind CSS. Ideal para desenvolvedores e designers que querem apresentar seus projetos de forma elegante e objetiva.
@@ -27,23 +26,23 @@ Um portfólio minimalista em preto e branco, desenvolvido com Vite, TypeScript e
 
 Clone o repositório e instale as dependências:
 
-```bash
+
 git clone https://github.com/HenryCauan/user-portfolios.git
 cd user-portfolios
 npm install
-````
+
 
 Rode o servidor de desenvolvimento:
 
-```bash
+
 npm run dev
-```
+
 
 Abra [http://localhost:5173](http://localhost:5173) no navegador.
 
 ## 🧱 Estrutura
 
-```
+
 user-portfolios/
 ├── public/
 ├── src/
@@ -54,7 +53,7 @@ user-portfolios/
 ├── tailwind.config.ts
 ├── index.html
 └── vite.config.ts
-```
+
 
 ## 🧑‍🎨 Personalização
 
