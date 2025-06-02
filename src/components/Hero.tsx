@@ -1,157 +1,194 @@
 
-import React, { useEffect, useRef } from 'react';
-import { ArrowDown, Download } from 'lucide-react';
+import React, { useEffect, useRef, useState } from 'react';
+import { ArrowDown, Download, Sparkles, Star } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const Hero: React.FC = () => {
-  const textRef = useRef<HTMLHeadingElement>(null);
-  const imageRef = useRef<HTMLDivElement>(null);
-  
+  const heroRef = useRef<HTMLDivElement>(null);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [isLoaded, setIsLoaded] = useState(false);
+
   useEffect(() => {
-    // Animation for text
-    const text = textRef.current;
-    const image = imageRef.current;
+    setIsLoaded(true);
     
-    if (text) {
-      text.style.opacity = '0';
-      text.style.transform = 'translateY(50px)';
-      
-      setTimeout(() => {
-        text.style.transition = 'all 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
-        text.style.opacity = '1';
-        text.style.transform = 'translateY(0)';
-      }, 400);
-    }
-    
-    if (image) {
-      image.style.opacity = '0';
-      image.style.transform = 'scale(0.8)';
-      
-      setTimeout(() => {
-        image.style.transition = 'all 1s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
-        image.style.opacity = '1';
-        image.style.transform = 'scale(1)';
-      }, 600);
-    }
+    const handleMouseMove = (e: MouseEvent) => {
+      setMousePosition({ x: e.clientX, y: e.clientY });
+    };
+
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
 
   return (
-    <section className="w-full min-h-screen flex flex-col justify-center items-center px-6 md:px-12 relative overflow-hidden bg-white text-black">
-      {/* Subtle background pattern */}
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.02)_1px,transparent_1px)] bg-[size:40px_40px] opacity-30"></div>
-      
-      {/* Top navigation hints */}
-      <div className="absolute top-8 left-8 text-black/60 text-sm font-light tracking-[0.2em] uppercase">
-        Creative Studio — Since 2024
-      </div>
-      <div className="absolute top-8 right-8 flex items-center gap-4">
-        <div className="w-8 h-4 bg-black/20 rounded-full relative">
-          <div className="w-3 h-3 bg-black rounded-full absolute right-0.5 top-0.5"></div>
-        </div>
-        <span className="text-black/70 text-sm font-medium">Portfolio</span>
-      </div>
-      
-      {/* Main content */}
-      <div className="max-w-7xl w-full flex flex-col items-center text-center z-10 relative">
-        {/* Large Typography inspired by Wosker Demo */}
+    <section 
+      ref={heroRef}
+      className="relative w-full min-h-screen bg-gradient-to-br from-white via-gray-50 to-white overflow-hidden"
+    >
+      {/* Dynamic Background Elements */}
+      <div className="absolute inset-0">
+        {/* Grid Pattern */}
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.02)_1px,transparent_1px)] bg-[size:60px_60px]" />
+        
+        {/* Floating Geometric Elements */}
         <div 
-          ref={textRef}
-          className="relative mb-12"
-        >
-          {/* Main title with massive impact */}
-          <div className="relative">
-            <h1 className="text-[12rem] md:text-[18rem] lg:text-[24rem] font-black tracking-[-0.02em] leading-[0.8] text-black relative z-10 font-oswald uppercase">
-              H.CAUAN
-            </h1>
-            
-            {/* Subtitle with emphasis */}
-            <div className="relative -mt-8 md:-mt-16 lg:-mt-24">
-              <h2 className="text-[8rem] md:text-[12rem] lg:text-[16rem] font-black tracking-[-0.01em] leading-[0.8] text-transparent bg-clip-text bg-gradient-to-r from-black to-gray-400 font-oswald uppercase">
-                STUDIO
-              </h2>
-            </div>
-            
-            {/* Accent lines for visual impact */}
-            <div className="absolute top-1/2 left-0 w-full h-1 bg-black/10 -translate-y-1/2 z-0"></div>
-            <div className="absolute top-1/2 left-0 w-32 h-2 bg-black -translate-y-1/2 z-0"></div>
+          className="absolute w-72 h-72 rounded-full bg-gradient-to-r from-blue-50 to-purple-50 opacity-30 blur-3xl transition-all duration-700"
+          style={{
+            left: mousePosition.x * 0.02 + 'px',
+            top: mousePosition.y * 0.02 + 'px',
+          }}
+        />
+        <div 
+          className="absolute w-96 h-96 rounded-full bg-gradient-to-r from-yellow-50 to-orange-50 opacity-20 blur-3xl transition-all duration-1000"
+          style={{
+            right: mousePosition.x * -0.01 + 'px',
+            bottom: mousePosition.y * -0.01 + 'px',
+          }}
+        />
+      </div>
+
+      {/* Top Navigation Bar */}
+      <div className="absolute top-0 left-0 right-0 z-50 p-8">
+        <div className="flex justify-between items-center">
+          <div className="flex items-center gap-3">
+            <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
+            <span className="text-sm text-gray-600 font-medium tracking-wider uppercase">
+              Available for Projects
+            </span>
           </div>
           
-          {/* Profile image positioned strategically */}
-          <div 
-            ref={imageRef}
-            className="absolute top-1/2 right-8 md:right-16 lg:right-24 -translate-y-1/2 z-20"
-          >
-            <div className="w-24 h-24 md:w-32 md:h-32 lg:w-40 lg:h-40 rounded-full overflow-hidden border-4 border-black shadow-2xl">
+          <div className="flex items-center gap-6">
+            <div className="flex gap-2">
+              {[...Array(5)].map((_, i) => (
+                <Star key={i} className="w-4 h-4 text-yellow-400 fill-current" />
+              ))}
+            </div>
+            <span className="text-sm text-gray-600 font-medium">5.0 Rating</span>
+          </div>
+        </div>
+      </div>
+
+      {/* Main Content */}
+      <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-6 md:px-12">
+        
+        {/* Profile Image with Floating Elements */}
+        <div className={`relative mb-8 transition-all duration-1000 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          <div className="relative">
+            <div className="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-white shadow-2xl relative z-10">
               <img 
                 src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face"
                 alt="H.Cauan"
                 className="w-full h-full object-cover"
               />
             </div>
-            {/* Decorative element */}
-            <div className="absolute -top-2 -right-2 w-6 h-6 bg-black rotate-45"></div>
+            
+            {/* Floating Badge */}
+            <div className="absolute -top-2 -right-2 bg-gradient-to-r from-purple-500 to-blue-500 text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg animate-pulse">
+              <Sparkles className="w-3 h-3 inline mr-1" />
+              PRO
+            </div>
+            
+            {/* Decorative Ring */}
+            <div className="absolute inset-0 rounded-full border-2 border-dashed border-gray-300 animate-spin-slow scale-110" />
           </div>
         </div>
-        
-        {/* Tagline with modern typography */}
-        <div className="max-w-2xl mb-16 relative">
-          <p className="text-2xl md:text-3xl lg:text-4xl font-light leading-relaxed text-black/80 font-inter">
-            Senior <span className="font-bold text-black">Product Designer</span> creating 
-            <br />
-            <span className="italic">digital experiences</span> for <span className="font-bold">3+ years</span>
+
+        {/* Main Typography */}
+        <div className={`text-center mb-8 transition-all duration-1200 delay-300 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          <div className="relative">
+            {/* Name with Gradient Effect */}
+            <h1 className="text-8xl md:text-9xl lg:text-[12rem] font-black leading-none tracking-tighter mb-4">
+              <span className="bg-gradient-to-r from-gray-900 via-black to-gray-800 bg-clip-text text-transparent font-oswald">
+                H.CAUAN
+              </span>
+            </h1>
+            
+            {/* Subtitle with Animation */}
+            <div className="relative">
+              <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold text-gray-800 mb-4 font-oswald">
+                PRODUCT DESIGNER
+              </h2>
+              
+              {/* Underline Animation */}
+              <div className="w-32 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto rounded-full" />
+            </div>
+          </div>
+        </div>
+
+        {/* Description */}
+        <div className={`max-w-3xl text-center mb-12 transition-all duration-1200 delay-500 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          <p className="text-xl md:text-2xl text-gray-600 leading-relaxed font-light">
+            Crafting <span className="font-semibold text-black">exceptional digital experiences</span> with 
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 font-semibold"> 3+ years</span> of 
+            expertise in UX/UI design and user-centered solutions.
           </p>
+        </div>
+
+        {/* Stats Section */}
+        <div className={`flex flex-wrap justify-center gap-8 md:gap-12 mb-12 transition-all duration-1200 delay-700 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          {[
+            { number: '50+', label: 'Projects Completed' },
+            { number: '25+', label: 'Happy Clients' },
+            { number: '3+', label: 'Years Experience' },
+            { number: '100%', label: 'Satisfaction Rate' }
+          ].map((stat, index) => (
+            <div key={index} className="text-center group">
+              <div className="text-3xl md:text-4xl font-black text-black mb-1 group-hover:scale-110 transition-transform duration-300">
+                {stat.number}
+              </div>
+              <div className="text-sm text-gray-500 uppercase tracking-wider font-medium">
+                {stat.label}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* CTA Buttons */}
+        <div className={`flex flex-col sm:flex-row gap-6 mb-16 transition-all duration-1200 delay-900 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          <Button 
+            size="lg"
+            className="bg-gradient-to-r from-gray-900 to-black hover:from-black hover:to-gray-800 text-white font-bold px-12 py-6 text-lg rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-105 group"
+          >
+            <span className="mr-2">View My Work</span>
+            <ArrowDown className="w-5 h-5 group-hover:translate-y-1 transition-transform duration-300" />
+          </Button>
           
-          {/* Decorative quote marks */}
-          <div className="absolute -top-4 -left-4 text-8xl text-black/10 font-serif">"</div>
-          <div className="absolute -bottom-4 -right-4 text-8xl text-black/10 font-serif rotate-180">"</div>
-        </div>
-        
-        {/* CTA buttons with modern styling */}
-        <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-          <Button className="bg-black hover:bg-black/90 text-white font-bold px-12 py-4 text-lg uppercase tracking-wider transition-all duration-300 hover:translate-y-[-2px] hover:shadow-xl border-2 border-black">
-            View Projects
-          </Button>
-          <Button variant="outline" className="border-2 border-black text-black hover:bg-black hover:text-white px-12 py-4 text-lg gap-3 font-bold uppercase tracking-wider transition-all duration-300 hover:translate-y-[-2px]">
-            <Download className="h-5 w-5" />
-            Download CV
+          <Button 
+            variant="outline" 
+            size="lg"
+            className="border-2 border-gray-900 text-gray-900 hover:bg-gray-900 hover:text-white px-12 py-6 text-lg rounded-full font-bold transition-all duration-300 hover:scale-105 group"
+          >
+            <Download className="w-5 h-5 mr-2 group-hover:translate-y-1 transition-transform duration-300" />
+            Download Resume
           </Button>
         </div>
-        
-        {/* Modern stats/info section */}
-        <div className="flex items-center gap-12 mt-16 text-black/60">
-          <div className="text-center">
-            <div className="text-3xl font-bold text-black">50+</div>
-            <div className="text-sm uppercase tracking-widest">Projects</div>
-          </div>
-          <div className="w-px h-8 bg-black/20"></div>
-          <div className="text-center">
-            <div className="text-3xl font-bold text-black">3+</div>
-            <div className="text-sm uppercase tracking-widest">Years</div>
-          </div>
-          <div className="w-px h-8 bg-black/20"></div>
-          <div className="text-center">
-            <div className="text-3xl font-bold text-black">25+</div>
-            <div className="text-sm uppercase tracking-widest">Clients</div>
+
+        {/* Scroll Indicator */}
+        <div className={`absolute bottom-8 left-1/2 transform -translate-x-1/2 transition-all duration-1200 delay-1100 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          <div className="flex flex-col items-center gap-4 animate-bounce">
+            <div className="text-xs text-gray-500 uppercase tracking-widest font-medium">
+              Scroll to Explore
+            </div>
+            <div className="w-6 h-10 border-2 border-gray-400 rounded-full flex justify-center">
+              <div className="w-1 h-3 bg-gray-400 rounded-full mt-2 animate-pulse" />
+            </div>
           </div>
         </div>
       </div>
-      
-      {/* Bottom scroll indicator */}
-      <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-6">
-        {/* Navigation dots */}
-        <div className="flex gap-2">
-          <div className="w-3 h-3 rounded-full bg-black"></div>
-          <div className="w-3 h-3 rounded-full bg-black/20"></div>
-          <div className="w-3 h-3 rounded-full bg-black/20"></div>
-          <div className="w-3 h-3 rounded-full bg-black/20"></div>
+
+      {/* Side Decorative Elements */}
+      <div className="absolute left-8 top-1/2 transform -translate-y-1/2 hidden lg:block">
+        <div className="flex flex-col gap-4">
+          <div className="w-1 h-16 bg-gradient-to-b from-blue-500 to-purple-500 rounded-full" />
+          <div className="w-1 h-8 bg-gray-300 rounded-full" />
+          <div className="w-1 h-12 bg-gray-200 rounded-full" />
         </div>
-        
-        {/* Scroll hint */}
-        <div className="animate-bounce cursor-pointer">
-          <div className="flex flex-col items-center gap-2">
-            <span className="text-xs text-black/60 uppercase tracking-[0.2em] font-medium">Explore</span>
-            <ArrowDown className="h-5 w-5 text-black/60" />
-          </div>
+      </div>
+
+      <div className="absolute right-8 top-1/2 transform -translate-y-1/2 hidden lg:block">
+        <div className="flex flex-col gap-4">
+          <div className="w-1 h-12 bg-gray-200 rounded-full" />
+          <div className="w-1 h-8 bg-gray-300 rounded-full" />
+          <div className="w-1 h-16 bg-gradient-to-b from-purple-500 to-blue-500 rounded-full" />
         </div>
       </div>
     </section>
