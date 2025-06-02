@@ -1,223 +1,92 @@
 
-import React, { useEffect, useRef, useState } from 'react';
-import { ArrowRight, Download, Play, Star, Zap, Award, Users } from 'lucide-react';
+import React, { useEffect, useRef } from 'react';
+import { ArrowDown, Download } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const Hero: React.FC = () => {
-  const [isLoaded, setIsLoaded] = useState(false);
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const heroRef = useRef<HTMLDivElement>(null);
-
+  const textRef = useRef<HTMLHeadingElement>(null);
+  
   useEffect(() => {
-    setIsLoaded(true);
-    
-    const handleMouseMove = (e: MouseEvent) => {
-      const { clientX, clientY } = e;
-      setMousePosition({ x: clientX, y: clientY });
-    };
-
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
+    // Simple text animation on load
+    const text = textRef.current;
+    if (text) {
+      text.style.opacity = '0';
+      text.style.transform = 'translateY(30px)';
+      
+      setTimeout(() => {
+        text.style.transition = 'all 1.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+        text.style.opacity = '1';
+        text.style.transform = 'translateY(0)';
+      }, 300);
+    }
   }, []);
 
   return (
-    <section 
-      ref={heroRef}
-      className="relative w-full min-h-screen bg-white overflow-hidden"
-    >
-      {/* Subtle Background Elements */}
-      <div className="absolute inset-0">
-        {/* Minimal Grid */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(0,0,0,0.01)_1px,transparent_1px)] bg-[length:40px_40px]" />
+    <section className="w-full min-h-screen flex flex-col justify-center items-center px-6 md:px-12 relative overflow-hidden bg-black text-white">
+      {/* Background pattern */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[length:50px_50px] opacity-30"></div>
+      
+      {/* Geometric lines */}
+      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
+      <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
+      <div className="absolute top-0 left-0 w-px h-full bg-gradient-to-b from-transparent via-white/20 to-transparent"></div>
+      <div className="absolute top-0 right-0 w-px h-full bg-gradient-to-b from-transparent via-white/20 to-transparent"></div>
+      
+      {/* Main content */}
+      <div className="max-w-6xl w-full flex flex-col items-center text-center z-10">
+        {/* Main title */}
+        <h1 
+          ref={textRef}
+          className="text-6xl md:text-8xl lg:text-9xl font-playfair font-bold tracking-tighter mb-8 relative"
+        >
+          H.CAUAN
+          <span className="block text-4xl md:text-6xl lg:text-7xl mt-4 text-white/60 font-light">
+            STUDIO.
+          </span>
+        </h1>
         
-        {/* Dynamic Gradient Orbs */}
-        <div 
-          className="absolute w-[600px] h-[600px] rounded-full bg-gradient-to-r from-blue-50/30 to-purple-50/30 blur-3xl opacity-50 transition-all duration-1000"
-          style={{
-            left: mousePosition.x * 0.01 - 300 + 'px',
-            top: mousePosition.y * 0.01 - 300 + 'px',
-          }}
-        />
-        <div 
-          className="absolute w-[400px] h-[400px] rounded-full bg-gradient-to-r from-orange-50/20 to-yellow-50/20 blur-3xl opacity-40 transition-all duration-1500"
-          style={{
-            right: mousePosition.x * -0.008 - 200 + 'px',
-            bottom: mousePosition.y * -0.008 - 200 + 'px',
-          }}
-        />
-      </div>
-
-      {/* Status Bar */}
-      <div className="absolute top-8 left-8 right-8 z-50">
-        <div className="flex justify-between items-center">
-          <div className="flex items-center gap-3 bg-white/80 backdrop-blur-sm border border-gray-100 rounded-full px-6 py-3 shadow-sm">
-            <div className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse" />
-            <span className="text-sm font-medium text-gray-700 tracking-wide">
-              Available for New Projects
-            </span>
-          </div>
-          
-          <div className="flex items-center gap-4 bg-white/80 backdrop-blur-sm border border-gray-100 rounded-full px-6 py-3 shadow-sm">
-            <div className="flex items-center gap-1">
-              {[...Array(5)].map((_, i) => (
-                <Star key={i} className="w-4 h-4 text-amber-400 fill-current" />
-              ))}
-            </div>
-            <span className="text-sm font-semibold text-gray-800">5.0</span>
-            <span className="text-sm text-gray-600">• 50+ Reviews</span>
-          </div>
-        </div>
-      </div>
-
-      {/* Main Content */}
-      <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-8">
+        {/* Subtitle */}
+        <p className="text-lg md:text-xl text-white/80 max-w-2xl leading-relaxed fade-in mb-12" style={{ animationDelay: '0.5s' }}>
+          Creating elegant, minimalist designs and intuitive user experiences that bring brands to life through purposeful digital solutions.
+        </p>
         
-        {/* Profile Section */}
-        <div className={`mb-16 transition-all duration-1000 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-          <div className="relative">
-            <div className="w-28 h-28 rounded-full overflow-hidden border-4 border-white shadow-2xl mx-auto mb-6 relative z-10">
-              <img 
-                src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face"
-                alt="H.Cauan"
-                className="w-full h-full object-cover"
-              />
-            </div>
-            
-            {/* Professional Badge */}
-            <div className="absolute -top-1 -right-1 bg-gradient-to-r from-violet-500 to-purple-600 text-white px-4 py-2 rounded-full text-xs font-bold shadow-lg flex items-center gap-1">
-              <Award className="w-3 h-3" />
-              SENIOR
-            </div>
-          </div>
-        </div>
-
-        {/* Main Typography */}
-        <div className={`text-center mb-12 transition-all duration-1200 delay-200 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-          {/* Name - Ultra Bold */}
-          <h1 className="text-7xl md:text-8xl lg:text-9xl xl:text-[10rem] font-black leading-[0.85] tracking-tighter mb-6">
-            <span className="bg-gradient-to-r from-gray-900 via-black to-gray-800 bg-clip-text text-transparent font-oswald">
-              H.CAUAN
-            </span>
-          </h1>
-          
-          {/* Title with Visual Emphasis */}
-          <div className="relative mb-8">
-            <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-gray-800 mb-4 font-oswald tracking-wide">
-              PRODUCT DESIGNER
-            </h2>
-            
-            {/* Animated Underline */}
-            <div className="flex justify-center">
-              <div className="w-24 h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-full animate-pulse" />
-            </div>
-          </div>
-        </div>
-
-        {/* Value Proposition */}
-        <div className={`max-w-4xl text-center mb-16 transition-all duration-1200 delay-400 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-          <p className="text-xl md:text-2xl lg:text-3xl text-gray-600 leading-relaxed font-light mb-8">
-            Transforming ideas into 
-            <span className="font-bold text-black mx-2">exceptional digital experiences</span>
-            through strategic design and user-centered innovation.
-          </p>
-          
-          {/* Key Benefits */}
-          <div className="flex flex-wrap justify-center gap-6 text-base">
-            <div className="flex items-center gap-2 bg-gray-50 px-4 py-2 rounded-full">
-              <Zap className="w-4 h-4 text-yellow-500" />
-              <span className="font-medium">Fast Delivery</span>
-            </div>
-            <div className="flex items-center gap-2 bg-gray-50 px-4 py-2 rounded-full">
-              <Users className="w-4 h-4 text-blue-500" />
-              <span className="font-medium">User-Focused</span>
-            </div>
-            <div className="flex items-center gap-2 bg-gray-50 px-4 py-2 rounded-full">
-              <Award className="w-4 h-4 text-purple-500" />
-              <span className="font-medium">Award-Winning</span>
-            </div>
-          </div>
-        </div>
-
-        {/* Impact Metrics */}
-        <div className={`grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 mb-16 transition-all duration-1200 delay-600 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-          {[
-            { number: '150+', label: 'Projects', color: 'text-blue-600' },
-            { number: '50+', label: 'Happy Clients', color: 'text-green-600' },
-            { number: '3+', label: 'Years Experience', color: 'text-purple-600' },
-            { number: '99%', label: 'Success Rate', color: 'text-orange-600' }
-          ].map((stat, index) => (
-            <div key={index} className="text-center group cursor-pointer">
-              <div className={`text-4xl md:text-5xl font-black mb-2 group-hover:scale-110 transition-all duration-300 ${stat.color}`}>
-                {stat.number}
-              </div>
-              <div className="text-sm md:text-base text-gray-600 uppercase tracking-wider font-semibold">
-                {stat.label}
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Primary Actions */}
-        <div className={`flex flex-col sm:flex-row gap-6 mb-20 transition-all duration-1200 delay-800 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-          <Button 
-            size="lg"
-            className="bg-gradient-to-r from-gray-900 to-black hover:from-black hover:to-gray-800 text-white font-bold px-10 py-6 text-lg rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-105 group border-0"
-          >
-            <span className="mr-3">View My Work</span>
-            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+        {/* CTA buttons */}
+        <div className="flex flex-col sm:flex-row gap-4 justify-center fade-in" style={{ animationDelay: '0.7s' }}>
+          <Button className="bg-white hover:bg-gray-100 text-black px-8 py-3 text-lg transition-all duration-300 hover:translate-y-[-2px] hover:shadow-2xl">
+            View Projects
           </Button>
-          
-          <Button 
-            variant="outline" 
-            size="lg"
-            className="border-2 border-gray-900 text-gray-900 hover:bg-gray-900 hover:text-white px-10 py-6 text-lg rounded-full font-bold transition-all duration-300 hover:scale-105 group bg-white/80 backdrop-blur-sm"
-          >
-            <Play className="w-5 h-5 mr-3 group-hover:scale-110 transition-transform duration-300" />
-            Watch Showreel
-          </Button>
-          
-          <Button 
-            variant="ghost" 
-            size="lg"
-            className="text-gray-700 hover:text-gray-900 px-10 py-6 text-lg rounded-full font-bold transition-all duration-300 hover:scale-105 group"
-          >
-            <Download className="w-5 h-5 mr-3 group-hover:translate-y-1 transition-transform duration-300" />
+          <Button variant="outline" className="border-white text-white hover:bg-white hover:text-black px-8 py-3 text-lg gap-2 transition-all duration-300 hover:translate-y-[-2px] hover:shadow-2xl">
+            <Download className="h-5 w-5" />
             Download CV
           </Button>
         </div>
-
-        {/* Scroll Indicator */}
-        <div className={`absolute bottom-12 left-1/2 transform -translate-x-1/2 transition-all duration-1200 delay-1000 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-          <div className="flex flex-col items-center gap-4 animate-bounce">
-            <div className="text-xs text-gray-400 uppercase tracking-[0.2em] font-bold">
-              Scroll to Explore
-            </div>
-            <div className="w-6 h-10 border-2 border-gray-300 rounded-full flex justify-center relative overflow-hidden">
-              <div className="w-1 h-3 bg-gray-400 rounded-full mt-2 animate-pulse" />
-            </div>
+      </div>
+      
+      {/* Bottom navigation hint */}
+      <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-8">
+        {/* Navigation dots */}
+        <div className="flex gap-2">
+          <div className="w-2 h-2 rounded-full bg-white"></div>
+          <div className="w-2 h-2 rounded-full bg-white/30"></div>
+          <div className="w-2 h-2 rounded-full bg-white/30"></div>
+          <div className="w-2 h-2 rounded-full bg-white/30"></div>
+        </div>
+        
+        {/* Scroll indicator */}
+        <div className="animate-bounce fade-in cursor-pointer" style={{ animationDelay: '1s' }}>
+          <div className="flex flex-col items-center gap-2">
+            <span className="text-xs text-white/60 uppercase tracking-widest">Scroll</span>
+            <ArrowDown className="h-4 w-4 text-white/60" />
           </div>
         </div>
       </div>
-
-      {/* Side Decoration */}
-      <div className="absolute left-12 top-1/2 transform -translate-y-1/2 hidden xl:block">
-        <div className="flex flex-col gap-6">
-          <div className="w-px h-20 bg-gradient-to-b from-transparent via-gray-300 to-transparent" />
-          <div className="w-2 h-2 bg-blue-500 rounded-full" />
-          <div className="w-px h-12 bg-gray-200" />
-          <div className="w-2 h-2 bg-purple-500 rounded-full" />
-          <div className="w-px h-20 bg-gradient-to-b from-transparent via-gray-300 to-transparent" />
-        </div>
+      
+      {/* Corner elements */}
+      <div className="absolute top-8 left-8 text-white/40 text-sm font-light">
+        Portfolio 2024
       </div>
-
-      <div className="absolute right-12 top-1/2 transform -translate-y-1/2 hidden xl:block">
-        <div className="flex flex-col gap-6">
-          <div className="w-px h-20 bg-gradient-to-b from-transparent via-gray-300 to-transparent" />
-          <div className="w-2 h-2 bg-orange-500 rounded-full" />
-          <div className="w-px h-12 bg-gray-200" />
-          <div className="w-2 h-2 bg-green-500 rounded-full" />
-          <div className="w-px h-20 bg-gradient-to-b from-transparent via-gray-300 to-transparent" />
-        </div>
+      <div className="absolute top-8 right-8 text-white/40 text-sm font-light">
+        H.CAUAN
       </div>
     </section>
   );
